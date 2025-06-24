@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taskmanagerv3.controller.UserProfileController"
+            fitToWidth="true" prefWidth="600" prefHeight="700">
+   <VBox spacing="20" style="-fx-padding: 20;">
+
+   <!-- Header removed - will be added by dashboard controller -->
+   <VBox spacing="10">
+      <Separator />
+   </VBox>
+
+   <!-- Avatar & Quick Info Section -->
+   <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); -fx-padding: 25; -fx-background-radius: 15;">
+      <!-- Avatar Section -->
+      <VBox alignment="CENTER" spacing="10">
+         <VBox alignment="CENTER" spacing="8" style="-fx-background-color: white; -fx-padding: 8; -fx-background-radius: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 3);">
+            <Circle fx:id="avatarCircle" radius="50" fill="#e9ecef" stroke="white" strokeWidth="3" />
+            <Label fx:id="avatarPlaceholder" text="👤" style="-fx-font-size: 48px;" />
+         </VBox>
+         <Button fx:id="uploadAvatarButton" text="📷 Upload Photo"
+                 style="-fx-background-color: rgba(255,255,255,0.9); -fx-text-fill: #2c3e50; -fx-padding: 8 15; -fx-background-radius: 20; -fx-cursor: hand; -fx-font-weight: bold;" />
+      </VBox>
+
+      <!-- Quick Profile Info -->
+      <VBox spacing="8" HBox.hgrow="ALWAYS">
+         <Label fx:id="profileDisplayName" text="User Name" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;" />
+         <Label fx:id="profileRole" text="User Role" style="-fx-font-size: 14px; -fx-text-fill: rgba(255,255,255,0.8);" />
+         <HBox spacing="15" alignment="CENTER_LEFT">
+            <VBox alignment="CENTER" spacing="3">
+               <Label fx:id="quickTotalTasks" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" />
+               <Label text="Total Tasks" style="-fx-font-size: 10px; -fx-text-fill: rgba(255,255,255,0.7);" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="3">
+               <Label fx:id="quickCompletedTasks" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" />
+               <Label text="Completed" style="-fx-font-size: 10px; -fx-text-fill: rgba(255,255,255,0.7);" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="3">
+               <Label fx:id="quickStreakDays" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" />
+               <Label text="Day Streak" style="-fx-font-size: 10px; -fx-text-fill: rgba(255,255,255,0.7);" />
+            </VBox>
+         </HBox>
+      </VBox>
+   </HBox>
+
+   <!-- Profile Information -->
+   <VBox spacing="15" style="-fx-background-color: #f8f9fa; -fx-padding: 20; -fx-background-radius: 10;">
+      <Label text="Profile Information" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+
+      <!-- Username -->
+      <VBox spacing="5">
+         <Label text="Username:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="usernameField" editable="false"
+                    style="-fx-background-color: #e9ecef;" />
+      </VBox>
+
+      <!-- Display Name -->
+      <VBox spacing="5">
+         <Label text="Display Name:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="displayNameField" />
+      </VBox>
+
+      <!-- Email -->
+      <VBox spacing="5">
+         <Label text="Email:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="emailField" />
+      </VBox>
+
+      <!-- Role -->
+      <VBox spacing="5">
+         <Label text="Role:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="roleField" editable="false"
+                    style="-fx-background-color: #e9ecef;" />
+      </VBox>
+
+      <!-- Department -->
+      <VBox spacing="5">
+         <Label text="Department:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="departmentField" />
+      </VBox>
+
+      <!-- Phone -->
+      <VBox spacing="5">
+         <Label text="Phone:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="phoneField" />
+      </VBox>
+   </VBox>
+
+   <!-- Enhanced Statistics Dashboard -->
+   <VBox spacing="20" style="-fx-background-color: #e8f4fd; -fx-padding: 20; -fx-background-radius: 10;">
+      <Label text="📊 Performance Dashboard" style="-fx-font-weight: bold; -fx-font-size: 18px; -fx-text-fill: #2c3e50;" />
+
+      <!-- Quick Stats Cards Row -->
+      <HBox spacing="15" alignment="CENTER">
+         <!-- Total Tasks Card -->
+         <VBox alignment="CENTER" spacing="8" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" HBox.hgrow="ALWAYS">
+            <Label text="📋" style="-fx-font-size: 24px;" />
+            <Label fx:id="totalTasksLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #3498db;" />
+            <Label text="Total Tasks" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d; -fx-font-weight: 500;" />
+         </VBox>
+
+         <!-- Completed Tasks Card -->
+         <VBox alignment="CENTER" spacing="8" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" HBox.hgrow="ALWAYS">
+            <Label text="✅" style="-fx-font-size: 24px;" />
+            <Label fx:id="completedTasksLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #27ae60;" />
+            <Label text="Completed" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d; -fx-font-weight: 500;" />
+         </VBox>
+
+         <!-- Completion Rate Card -->
+         <VBox alignment="CENTER" spacing="8" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" HBox.hgrow="ALWAYS">
+            <Label text="🎯" style="-fx-font-size: 24px;" />
+            <Label fx:id="completionRateLabel" text="0%" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #f39c12;" />
+            <Label text="Success Rate" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d; -fx-font-weight: 500;" />
+         </VBox>
+
+         <!-- Streak Card -->
+         <VBox alignment="CENTER" spacing="8" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" HBox.hgrow="ALWAYS">
+            <Label text="🔥" style="-fx-font-size: 24px;" />
+            <Label fx:id="streakLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;" />
+            <Label text="Day Streak" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d; -fx-font-weight: 500;" />
+         </VBox>
+      </HBox>
+
+      <!-- Charts Section -->
+      <HBox spacing="20" alignment="CENTER">
+         <!-- Task Status Breakdown Chart -->
+         <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" HBox.hgrow="ALWAYS">
+            <Label text="Task Status Breakdown" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #2c3e50;" />
+            <PieChart fx:id="taskStatusPieChart" prefHeight="200" prefWidth="250" />
+         </VBox>
+
+         <!-- Progress Bars Section -->
+         <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" HBox.hgrow="ALWAYS">
+            <Label text="Detailed Progress" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #2c3e50;" />
+
+            <!-- Completed Progress -->
+            <VBox spacing="5">
+               <HBox alignment="CENTER_LEFT" spacing="10">
+                  <Label text="✅ Completed" style="-fx-font-size: 12px; -fx-min-width: 80;" />
+                  <ProgressBar fx:id="completedProgressBar" prefHeight="12" prefWidth="150" style="-fx-accent: #27ae60;" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="completedPercentLabel" text="0%" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #27ae60;" />
+               </HBox>
+            </VBox>
+
+            <!-- In Progress -->
+            <VBox spacing="5">
+               <HBox alignment="CENTER_LEFT" spacing="10">
+                  <Label text="🔄 In Progress" style="-fx-font-size: 12px; -fx-min-width: 80;" />
+                  <ProgressBar fx:id="inProgressProgressBar" prefHeight="12" prefWidth="150" style="-fx-accent: #3498db;" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="inProgressPercentLabel" text="0%" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #3498db;" />
+               </HBox>
+            </VBox>
+
+            <!-- Pending -->
+            <VBox spacing="5">
+               <HBox alignment="CENTER_LEFT" spacing="10">
+                  <Label text="⏳ Pending" style="-fx-font-size: 12px; -fx-min-width: 80;" />
+                  <ProgressBar fx:id="pendingProgressBar" prefHeight="12" prefWidth="150" style="-fx-accent: #f39c12;" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="pendingPercentLabel" text="0%" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #f39c12;" />
+               </HBox>
+            </VBox>
+
+            <!-- Overdue -->
+            <VBox spacing="5">
+               <HBox alignment="CENTER_LEFT" spacing="10">
+                  <Label text="🚨 Overdue" style="-fx-font-size: 12px; -fx-min-width: 80;" />
+                  <ProgressBar fx:id="overdueProgressBar" prefHeight="12" prefWidth="150" style="-fx-accent: #e74c3c;" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="overduePercentLabel" text="0%" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;" />
+               </HBox>
+            </VBox>
+         </VBox>
+      </HBox>
+
+      <!-- Account Info Row -->
+      <HBox spacing="20" alignment="CENTER">
+         <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Member Since:" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+            <Label fx:id="memberSinceLabel" text="January 2024" style="-fx-font-size: 14px; -fx-text-fill: #34495e;" />
+         </VBox>
+         <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Last Login:" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+            <Label fx:id="lastLoginLabel" text="Today" style="-fx-font-size: 14px; -fx-text-fill: #34495e;" />
+         </VBox>
+         <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Average Rating:" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+            <Label fx:id="averageRatingLabel" text="N/A" style="-fx-font-size: 14px; -fx-text-fill: #9b59b6;" />
+         </VBox>
+      </HBox>
+   </VBox>
+
+   <!-- Password Change Section -->
+   <VBox spacing="15" style="-fx-background-color: #fff3cd; -fx-padding: 20; -fx-background-radius: 10;">
+      <Label text="Change Password" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+
+      <VBox spacing="5">
+         <Label text="Current Password:" style="-fx-font-weight: bold;" />
+         <PasswordField fx:id="currentPasswordField" />
+      </VBox>
+
+      <VBox spacing="5">
+         <Label text="New Password:" style="-fx-font-weight: bold;" />
+         <PasswordField fx:id="newPasswordField" />
+      </VBox>
+
+      <VBox spacing="5">
+         <Label text="Confirm New Password:" style="-fx-font-weight: bold;" />
+         <PasswordField fx:id="confirmPasswordField" />
+      </VBox>
+
+      <Button fx:id="changePasswordButton" text="Change Password"
+              style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;"
+              prefWidth="200">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+   </VBox>
+
+
+
+   <!-- Preferences Section -->
+   <VBox spacing="15" style="-fx-background-color: #f0f0f0; -fx-padding: 20; -fx-background-radius: 10;">
+      <Label text="🔔 Notifications &amp; Preferences" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+
+      <CheckBox fx:id="emailNotificationsCheckBox" text="📧 Receive email notifications" selected="true" />
+      <CheckBox fx:id="taskRemindersCheckBox" text="⏰ Enable task reminders" selected="true" />
+      <CheckBox fx:id="weeklyReportsCheckBox" text="📊 Receive weekly progress reports" selected="false" />
+      <CheckBox fx:id="soundNotificationsCheckBox" text="🔊 Enable sound notifications" selected="true" />
+      <CheckBox fx:id="desktopNotificationsCheckBox" text="💻 Enable desktop notifications" selected="true" />
+
+      <VBox spacing="5">
+         <Label text="Time Zone:" style="-fx-font-weight: bold;" />
+         <ComboBox fx:id="timeZoneComboBox" prefWidth="200" />
+      </VBox>
+
+      <VBox spacing="5">
+         <Label text="Notification Frequency:" style="-fx-font-weight: bold;" />
+         <ComboBox fx:id="notificationFrequencyComboBox" prefWidth="200" />
+      </VBox>
+   </VBox>
+
+   <!-- Achievements & Goals Section -->
+   <VBox spacing="15" style="-fx-background-color: #fff8e1; -fx-padding: 20; -fx-background-radius: 10;">
+      <Label text="🏆 Achievements &amp; Goals" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #f57c00;" />
+
+      <!-- Current Goals -->
+      <VBox spacing="10">
+         <Label text="Current Goals:" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+         <HBox spacing="15">
+            <VBox spacing="5" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);" HBox.hgrow="ALWAYS">
+               <Label text="Daily Goal" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+               <ProgressBar fx:id="dailyGoalProgress" prefWidth="200" prefHeight="8" />
+               <Label fx:id="dailyGoalLabel" text="Complete 3 tasks today (1/3)" style="-fx-font-size: 10px; -fx-text-fill: #666;" />
+            </VBox>
+            <VBox spacing="5" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);" HBox.hgrow="ALWAYS">
+               <Label text="Weekly Goal" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+               <ProgressBar fx:id="weeklyGoalProgress" prefWidth="200" prefHeight="8" />
+               <Label fx:id="weeklyGoalLabel" text="Complete 15 tasks this week (8/15)" style="-fx-font-size: 10px; -fx-text-fill: #666;" />
+            </VBox>
+         </HBox>
+      </VBox>
+
+      <!-- Achievements Grid -->
+      <VBox spacing="10">
+         <Label text="Recent Achievements:" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+         <HBox spacing="10">
+            <VBox alignment="CENTER" spacing="5" style="-fx-background-color: white; -fx-padding: 10; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);" HBox.hgrow="ALWAYS">
+               <Label text="🥇" style="-fx-font-size: 24px;" />
+               <Label text="First Task" style="-fx-font-size: 10px; -fx-font-weight: bold;" />
+               <Label text="Completed" style="-fx-font-size: 8px; -fx-text-fill: #27ae60;" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="5" style="-fx-background-color: white; -fx-padding: 10; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);" HBox.hgrow="ALWAYS">
+               <Label text="🔥" style="-fx-font-size: 24px;" />
+               <Label text="3-Day Streak" style="-fx-font-size: 10px; -fx-font-weight: bold;" />
+               <Label text="Achieved" style="-fx-font-size: 8px; -fx-text-fill: #27ae60;" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="5" style="-fx-background-color: white; -fx-padding: 10; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);" HBox.hgrow="ALWAYS">
+               <Label text="⚡" style="-fx-font-size: 24px;" />
+               <Label text="Speed Demon" style="-fx-font-size: 10px; -fx-font-weight: bold;" />
+               <Label text="In Progress" style="-fx-font-size: 8px; -fx-text-fill: #f39c12;" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="5" style="-fx-background-color: white; -fx-padding: 10; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);" HBox.hgrow="ALWAYS">
+               <Label text="🎯" style="-fx-font-size: 24px;" />
+               <Label text="Perfect Week" style="-fx-font-size: 10px; -fx-font-weight: bold;" />
+               <Label text="Locked" style="-fx-font-size: 8px; -fx-text-fill: #95a5a6;" />
+            </VBox>
+         </HBox>
+      </VBox>
+
+      <!-- Next Achievement -->
+      <VBox spacing="5" style="-fx-background-color: rgba(255,193,7,0.1); -fx-padding: 15; -fx-background-radius: 8; -fx-border-color: #ffc107; -fx-border-width: 1; -fx-border-radius: 8;">
+         <Label text="🎯 Next Achievement: Task Master" style="-fx-font-weight: bold; -fx-font-size: 12px; -fx-text-fill: #f57c00;" />
+         <ProgressBar fx:id="nextAchievementProgress" prefWidth="300" prefHeight="6" progress="0.6" />
+         <Label text="Complete 50 tasks total (30/50)" style="-fx-font-size: 10px; -fx-text-fill: #666;" />
+      </VBox>
+   </VBox>
+
+   <!-- Action Buttons -->
+   <HBox spacing="15" alignment="CENTER">
+      <Button fx:id="saveProfileButton" text="Save Profile"
+              style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="resetButton" text="Reset Changes"
+              style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="cancelButton" text="Cancel"
+              style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </HBox>
+
+   </VBox>
+</ScrollPane>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taskmanagerv3.controller.AdminReportsController">
+
+   <!-- Top Header -->
+   <top>
+      <VBox style="-fx-background-color: #16a085; -fx-padding: 15;">
+         <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="System Reports" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="refreshButton" text="Refresh"
+                    style="-fx-background-color: #1abc9c; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="closeButton" text="Close"
+                    style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+         </HBox>
+      </VBox>
+   </top>
+
+   <!-- Left Sidebar - Report Types -->
+   <left>
+      <VBox spacing="10" style="-fx-background-color: #ecf0f1; -fx-padding: 20;" prefWidth="220">
+         <Label text="Report Types" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+
+         <Button fx:id="overviewButton" text="System Overview"
+                 style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5;"
+                 prefWidth="180">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="userReportsButton" text="User Reports"
+                 style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5;"
+                 prefWidth="180">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="taskReportsButton" text="Task Reports"
+                 style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5;"
+                 prefWidth="180">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="performanceButton" text="Performance"
+                 style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5;"
+                 prefWidth="180">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="activityLogsButton" text="Activity Logs"
+                 style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5;"
+                 prefWidth="180">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+
+         <Separator />
+
+         <!-- Date Range Filter -->
+         <VBox spacing="10">
+            <Label text="Date Range" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+
+            <VBox spacing="5">
+               <Label text="From:" style="-fx-font-weight: bold;" />
+               <DatePicker fx:id="fromDatePicker" prefWidth="180" />
+            </VBox>
+
+            <VBox spacing="5">
+               <Label text="To:" style="-fx-font-weight: bold;" />
+               <DatePicker fx:id="toDatePicker" prefWidth="180" />
+            </VBox>
+
+            <Button fx:id="applyDateFilterButton" text="Apply Filter"
+                    style="-fx-background-color: #16a085; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;"
+                    prefWidth="180">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+         </VBox>
+      </VBox>
+   </left>
+
+   <!-- Center - Report Content -->
+   <center>
+      <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+         <VBox fx:id="reportContentArea" spacing="20" style="-fx-padding: 30;">
+
+            <!-- System Overview -->
+            <VBox fx:id="systemOverview" spacing="15">
+               <Label text="System Overview" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+               <!-- Statistics Cards -->
+               <GridPane hgap="20" vgap="20">
+                  <columnConstraints>
+                     <ColumnConstraints percentWidth="25" />
+                     <ColumnConstraints percentWidth="25" />
+                     <ColumnConstraints percentWidth="25" />
+                     <ColumnConstraints percentWidth="25" />
+                  </columnConstraints>
+
+                  <!-- Total Users Card -->
+                  <VBox spacing="10" style="-fx-background-color: #3498db; -fx-padding: 20; -fx-background-radius: 10;"
+                        GridPane.columnIndex="0" GridPane.rowIndex="0">
+                     <Label text="Total Users" style="-fx-text-fill: white; -fx-font-weight: bold;" />
+                     <Label fx:id="totalUsersLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                  </VBox>
+
+                  <!-- Active Users Card -->
+                  <VBox spacing="10" style="-fx-background-color: #27ae60; -fx-padding: 20; -fx-background-radius: 10;"
+                        GridPane.columnIndex="1" GridPane.rowIndex="0">
+                     <Label text="Active Users" style="-fx-text-fill: white; -fx-font-weight: bold;" />
+                     <Label fx:id="activeUsersLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                  </VBox>
+
+                  <!-- Total Tasks Card -->
+                  <VBox spacing="10" style="-fx-background-color: #f39c12; -fx-padding: 20; -fx-background-radius: 10;"
+                        GridPane.columnIndex="2" GridPane.rowIndex="0">
+                     <Label text="Total Tasks" style="-fx-text-fill: white; -fx-font-weight: bold;" />
+                     <Label fx:id="totalTasksLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                  </VBox>
+
+                  <!-- Completed Tasks Card -->
+                  <VBox spacing="10" style="-fx-background-color: #e74c3c; -fx-padding: 20; -fx-background-radius: 10;"
+                        GridPane.columnIndex="3" GridPane.rowIndex="0">
+                     <Label text="Completed Tasks" style="-fx-text-fill: white; -fx-font-weight: bold;" />
+                     <Label fx:id="completedTasksLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                  </VBox>
+               </GridPane>
+
+               <!-- Recent Activity -->
+               <VBox spacing="10" style="-fx-background-color: #f8f9fa; -fx-padding: 20; -fx-background-radius: 10;">
+                  <Label text="Recent System Activity" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                  <ListView fx:id="recentActivityListView" prefHeight="200" />
+               </VBox>
+            </VBox>
+
+            <!-- User Reports -->
+            <VBox fx:id="userReports" spacing="15" visible="false" managed="false">
+               <Label text="User Reports" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+               <VBox spacing="10" style="-fx-background-color: #f8f9fa; -fx-padding: 20; -fx-background-radius: 10;">
+                  <Label text="User Statistics" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                  <TableView fx:id="userStatsTable" prefHeight="300">
+                     <columns>
+                        <TableColumn fx:id="userNameColumn" text="User Name" prefWidth="150" />
+                        <TableColumn fx:id="userRoleColumn" text="Role" prefWidth="100" />
+                        <TableColumn fx:id="userTasksColumn" text="Total Tasks" prefWidth="100" />
+                        <TableColumn fx:id="userCompletedColumn" text="Completed" prefWidth="100" />
+                        <TableColumn fx:id="userCompletionRateColumn" text="Completion Rate" prefWidth="120" />
+                        <TableColumn fx:id="userLastLoginColumn" text="Last Login" prefWidth="150" />
+                     </columns>
+                  </TableView>
+               </VBox>
+            </VBox>
+
+            <!-- Task Reports -->
+            <VBox fx:id="taskReports" spacing="15" visible="false" managed="false">
+               <Label text="Task Reports" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+               <VBox spacing="10" style="-fx-background-color: #f8f9fa; -fx-padding: 20; -fx-background-radius: 10;">
+                  <Label text="Task Statistics by Status" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                  <TableView fx:id="taskStatsTable" prefHeight="300">
+                     <columns>
+                        <TableColumn fx:id="taskTitleColumn" text="Task Title" prefWidth="200" />
+                        <TableColumn fx:id="taskStatusColumn" text="Status" prefWidth="100" />
+                        <TableColumn fx:id="taskPriorityColumn" text="Priority" prefWidth="100" />
+                        <TableColumn fx:id="taskAssigneeColumn" text="Assignee" prefWidth="150" />
+                        <TableColumn fx:id="taskDueDateColumn" text="Due Date" prefWidth="120" />
+                        <TableColumn fx:id="taskProgressColumn" text="Progress" prefWidth="100" />
+                     </columns>
+                  </TableView>
+               </VBox>
+            </VBox>
+
+            <!-- Performance Reports -->
+            <VBox fx:id="performanceReports" spacing="15" visible="false" managed="false">
+               <Label text="Performance Reports" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+               <VBox spacing="10" style="-fx-background-color: #f8f9fa; -fx-padding: 20; -fx-background-radius: 10;">
+                  <Label text="System Performance Metrics" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+
+                  <GridPane hgap="20" vgap="15">
+                     <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                     </columnConstraints>
+
+                     <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Average Task Completion Time:" style="-fx-font-weight: bold;" />
+                        <Label fx:id="avgCompletionTimeLabel" text="0 days" />
+                     </VBox>
+
+                     <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="System Uptime:" style="-fx-font-weight: bold;" />
+                        <Label fx:id="systemUptimeLabel" text="0 hours" />
+                     </VBox>
+
+                     <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <Label text="Database Size:" style="-fx-font-weight: bold;" />
+                        <Label fx:id="databaseSizeLabel" text="0 MB" />
+                     </VBox>
+
+                     <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label text="Active Sessions:" style="-fx-font-weight: bold;" />
+                        <Label fx:id="activeSessionsLabel" text="0" />
+                     </VBox>
+                  </GridPane>
+               </VBox>
+            </VBox>
+
+            <!-- Activity Logs -->
+            <VBox fx:id="activityLogs" spacing="15" visible="false" managed="false">
+               <Label text="Activity Logs" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+               <VBox spacing="10" style="-fx-background-color: #f8f9fa; -fx-padding: 20; -fx-background-radius: 10;">
+                  <HBox spacing="10" alignment="CENTER_LEFT">
+                     <Label text="Filter by:" style="-fx-font-weight: bold;" />
+                     <ComboBox fx:id="logTypeComboBox" prefWidth="150" />
+                     <Button fx:id="exportLogsButton" text="Export Logs"
+                             style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+                        <font>
+                           <Font size="12.0" />
+                        </font>
+                     </Button>
+                  </HBox>
+
+                  <TableView fx:id="activityLogsTable" prefHeight="400">
+                     <columns>
+                        <TableColumn fx:id="logTimestampColumn" text="Timestamp" prefWidth="150" />
+                        <TableColumn fx:id="logUserColumn" text="User" prefWidth="120" />
+                        <TableColumn fx:id="logActionColumn" text="Action" prefWidth="150" />
+                        <TableColumn fx:id="logDetailsColumn" text="Details" prefWidth="300" />
+                        <TableColumn fx:id="logIpAddressColumn" text="IP Address" prefWidth="120" />
+                     </columns>
+                  </TableView>
+               </VBox>
+            </VBox>
+         </VBox>
+      </ScrollPane>
+   </center>
+
+   <!-- Bottom - Export Options -->
+   <bottom>
+      <HBox spacing="15" alignment="CENTER" style="-fx-padding: 20; -fx-background-color: #ecf0f1;">
+         <Button fx:id="exportPdfButton" text="Export to PDF"
+                 style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="exportExcelButton" text="Export to Excel"
+                 style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="printReportButton" text="Print Report"
+                 style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="advancedExportButton" text="Advanced Export"
+                 style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+      </HBox>
+   </bottom>
+
+</BorderPane>

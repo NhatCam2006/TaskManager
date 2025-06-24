@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taskmanagerv3.controller.UserCalendarController">
+
+
+   <!-- Top Header -->
+   <top>
+      <VBox style="-fx-background-color: #9b59b6; -fx-padding: 12;">
+         <HBox alignment="CENTER_LEFT" spacing="15">
+            <Label text="Task Calendar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+
+            <!-- Navigation Controls - Centered -->
+            <Region HBox.hgrow="ALWAYS" />
+
+            <HBox spacing="10" alignment="CENTER">
+               <Button fx:id="prevMonthButton" text="&lt;"
+                       style="-fx-background-color: #8e44ad; -fx-text-fill: white; -fx-padding: 6 10; -fx-background-radius: 5; -fx-min-width: 35;">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Button>
+
+               <Label fx:id="currentMonthLabel" text="June 2025" textFill="WHITE" style="-fx-min-width: 120; -fx-alignment: center;">
+                  <font>
+                     <Font name="System Bold" size="16.0" />
+                  </font>
+               </Label>
+
+               <Button fx:id="nextMonthButton" text="&gt;"
+                       style="-fx-background-color: #8e44ad; -fx-text-fill: white; -fx-padding: 6 10; -fx-background-radius: 5; -fx-min-width: 35;">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Button>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Action Buttons -->
+            <HBox spacing="8" alignment="CENTER_RIGHT">
+               <Button fx:id="todayButton" text="Today"
+                       style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 6 12; -fx-background-radius: 5;">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+               </Button>
+
+               <Button fx:id="backToDashboardButton" text="Back to Dashboard"
+                       style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 6 12; -fx-background-radius: 5;">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+               </Button>
+            </HBox>
+         </HBox>
+      </VBox>
+   </top>
+
+   <!-- Left Sidebar - Legend and Filters -->
+   <left>
+      <VBox spacing="12" style="-fx-background-color: #f8f9fa; -fx-padding: 15;" prefWidth="220" maxWidth="220">
+
+         <!-- Legend -->
+         <VBox spacing="8">
+            <Label text="Legend" style="-fx-font-weight: bold; -fx-font-size: 13px;" />
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+               <Label text="🔴" style="-fx-font-size: 14px;" />
+               <Label text="Overdue" style="-fx-font-size: 11px;" />
+            </HBox>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+               <Label text="🟠" style="-fx-font-size: 14px;" />
+               <Label text="This Week" style="-fx-font-size: 11px;" />
+            </HBox>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+               <Label text="🟢" style="-fx-font-size: 14px;" />
+               <Label text="Done" style="-fx-font-size: 11px;" />
+            </HBox>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+               <Label text="⚪" style="-fx-font-size: 14px;" />
+               <Label text="Future" style="-fx-font-size: 11px;" />
+            </HBox>
+         </VBox>
+
+         <Separator />
+
+         <!-- View Options -->
+         <VBox spacing="8">
+            <Label text="View Options" style="-fx-font-weight: bold; -fx-font-size: 13px;" />
+
+            <CheckBox fx:id="showCompletedCheckBox" text="Completed" selected="true" style="-fx-font-size: 11px;" />
+            <CheckBox fx:id="showOverdueCheckBox" text="Overdue" selected="true" style="-fx-font-size: 11px;" />
+            <CheckBox fx:id="showFutureCheckBox" text="Future" selected="true" style="-fx-font-size: 11px;" />
+         </VBox>
+
+         <Separator />
+
+         <!-- Month Summary -->
+         <VBox spacing="8">
+            <Label text="Month Summary" style="-fx-font-weight: bold; -fx-font-size: 13px;" />
+
+            <VBox spacing="4">
+               <HBox spacing="8" alignment="CENTER_LEFT">
+                  <Label text="Total:" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+                  <Label fx:id="totalTasksThisMonthLabel" text="0" style="-fx-font-size: 11px;" />
+               </HBox>
+
+               <HBox spacing="8" alignment="CENTER_LEFT">
+                  <Label text="Done:" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+                  <Label fx:id="completedTasksThisMonthLabel" text="0" style="-fx-font-size: 11px;" />
+               </HBox>
+
+               <HBox spacing="8" alignment="CENTER_LEFT">
+                  <Label text="Pending:" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+                  <Label fx:id="pendingTasksThisMonthLabel" text="0" style="-fx-font-size: 11px;" />
+               </HBox>
+
+               <HBox spacing="8" alignment="CENTER_LEFT">
+                  <Label text="Overdue:" style="-fx-font-weight: bold; -fx-font-size: 11px;" />
+                  <Label fx:id="overdueTasksThisMonthLabel" text="0" style="-fx-font-size: 11px;" />
+               </HBox>
+            </VBox>
+         </VBox>
+
+         <Separator />
+
+         <!-- Actions -->
+         <VBox spacing="8">
+            <Label text="Actions" style="-fx-font-weight: bold; -fx-font-size: 13px;" />
+
+            <Button fx:id="refreshCalendarButton" text="🔄 Refresh"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 6 12; -fx-background-radius: 5;"
+                    prefWidth="180">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+
+            <Button fx:id="exportCalendarButton" text="📤 Export"
+                    style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 6 12; -fx-background-radius: 5;"
+                    prefWidth="180">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+         </VBox>
+      </VBox>
+   </left>
+
+   <!-- Center - Calendar Grid -->
+   <center>
+      <VBox spacing="8" style="-fx-padding: 15;">
+
+         <!-- Day Headers -->
+         <GridPane fx:id="dayHeadersGrid" hgap="1" vgap="1" style="-fx-background-color: #ecf0f1; -fx-padding: 5;">
+            <columnConstraints>
+               <ColumnConstraints percentWidth="14.28" />
+               <ColumnConstraints percentWidth="14.28" />
+               <ColumnConstraints percentWidth="14.28" />
+               <ColumnConstraints percentWidth="14.28" />
+               <ColumnConstraints percentWidth="14.28" />
+               <ColumnConstraints percentWidth="14.28" />
+               <ColumnConstraints percentWidth="14.28" />
+            </columnConstraints>
+         </GridPane>
+
+         <!-- Calendar Grid -->
+         <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+            <GridPane fx:id="calendarGrid" hgap="1" vgap="1" style="-fx-padding: 2; -fx-background-color: #ecf0f1;">
+               <columnConstraints>
+                  <ColumnConstraints percentWidth="14.28" />
+                  <ColumnConstraints percentWidth="14.28" />
+                  <ColumnConstraints percentWidth="14.28" />
+                  <ColumnConstraints percentWidth="14.28" />
+                  <ColumnConstraints percentWidth="14.28" />
+                  <ColumnConstraints percentWidth="14.28" />
+                  <ColumnConstraints percentWidth="14.28" />
+               </columnConstraints>
+            </GridPane>
+         </ScrollPane>
+      </VBox>
+   </center>
+
+   <!-- Bottom - Selected Day Details -->
+   <bottom>
+      <VBox spacing="8" style="-fx-background-color: #ecf0f1; -fx-padding: 12;" prefHeight="100" maxHeight="100">
+         <HBox spacing="8" alignment="CENTER_LEFT">
+            <Label text="Selected:" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+            <Label fx:id="selectedDateLabel" text="Jun 24, 2025" style="-fx-font-size: 12px;" />
+         </HBox>
+
+         <ScrollPane prefHeight="60" fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox fx:id="selectedDateTasksContainer" spacing="3" style="-fx-padding: 3;" />
+         </ScrollPane>
+      </VBox>
+   </bottom>
+
+</BorderPane>

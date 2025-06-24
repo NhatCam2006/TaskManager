@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taskmanagerv3.controller.AdminDashboardController"
+            style="-fx-background-color: #f5f5f5;">
+
+   <!-- Top Header -->
+   <top>
+      <VBox style="-fx-background-color: #2c3e50; -fx-padding: 15;">
+         <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="WorkFlow Manager - Admin Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="currentTimeLabel" textFill="#BDC3C7">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="welcomeLabel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="logoutButton" text="Logout"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+         </HBox>
+      </VBox>
+   </top>
+
+   <!-- Left Navigation -->
+   <left>
+      <VBox spacing="5" style="-fx-background-color: #34495e; -fx-padding: 20; -fx-min-width: 200;">
+         <Label text="NAVIGATION" textFill="#BDC3C7">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+
+         <Separator style="-fx-background: #7f8c8d;" />
+
+         <Button fx:id="userManagementButton" text="👥 User Management"
+                 style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10; -fx-cursor: hand;"
+                 maxWidth="Infinity">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="taskManagementButton" text="📋 Task Management"
+                 style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10; -fx-cursor: hand;"
+                 maxWidth="Infinity">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="passwordResetButton" text="🔐 Password Reset Requests"
+                 style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10; -fx-cursor: hand;"
+                 maxWidth="Infinity">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="reportsButton" text="📊 Reports &amp; Analytics"
+                 style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10; -fx-cursor: hand;"
+                 maxWidth="Infinity">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="settingsButton" text="⚙️ Settings"
+                 style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10; -fx-cursor: hand;"
+                 maxWidth="Infinity">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="chatButton" text="💬 Chat Center"
+                 style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10; -fx-cursor: hand;"
+                 maxWidth="Infinity">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="aiChatbotButton" text="🤖 AI Assistant"
+                 style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10; -fx-cursor: hand;"
+                 maxWidth="Infinity">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </Button>
+
+         <Region VBox.vgrow="ALWAYS" />
+
+         <Button onAction="#refreshDashboard" text="🔄 Refresh"
+                 style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 8; -fx-background-radius: 5; -fx-cursor: hand;"
+                 maxWidth="Infinity">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+      </VBox>
+   </left>
+
+   <!-- Main Content -->
+   <center>
+      <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+         <VBox fx:id="mainContentContainer" spacing="0" style="-fx-padding: 0;">
+
+            <!-- Default Dashboard Content -->
+            <VBox fx:id="adminDashboardContent" spacing="20" style="-fx-padding: 20;">
+               <!-- Statistics Cards -->
+               <HBox spacing="20" alignment="CENTER">
+                  <!-- Total Users Card -->
+                  <VBox alignment="CENTER" spacing="10"
+                        style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);"
+                        HBox.hgrow="ALWAYS">
+                     <Label text="👥" style="-fx-font-size: 30;" />
+                     <Label fx:id="totalUsersLabel" text="0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+                     <Label text="Total Users" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d;" />
+                  </VBox>
+
+                  <!-- Total Tasks Card -->
+                  <VBox alignment="CENTER" spacing="10"
+                        style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);"
+                        HBox.hgrow="ALWAYS">
+                     <Label text="📋" style="-fx-font-size: 30;" />
+                     <Label fx:id="totalTasksLabel" text="0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #3498db;" />
+                     <Label text="Total Tasks" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d;" />
+                  </VBox>
+
+                  <!-- Completed Tasks Card -->
+                  <VBox alignment="CENTER" spacing="10"
+                        style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);"
+                        HBox.hgrow="ALWAYS">
+                     <Label text="✅" style="-fx-font-size: 30;" />
+                     <Label fx:id="completedTasksLabel" text="0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #27ae60;" />
+                     <Label text="Completed" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d;" />
+                  </VBox>
+
+                  <!-- Pending Tasks Card -->
+                  <VBox alignment="CENTER" spacing="10"
+                        style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);"
+                        HBox.hgrow="ALWAYS">
+                     <Label text="⏳" style="-fx-font-size: 30;" />
+                     <Label fx:id="pendingTasksLabel" text="0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #f39c12;" />
+                     <Label text="Pending" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d;" />
+                  </VBox>
+               </HBox>
+
+               <!-- Quick Actions -->
+               <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                  <Label text="Quick Actions" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+                  <HBox spacing="15" alignment="CENTER_LEFT">
+                     <Button fx:id="createTaskButton" text="➕ Create Task"
+                             style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 12 20; -fx-background-radius: 5; -fx-cursor: hand;">
+                        <font>
+                           <Font size="13.0" />
+                        </font>
+                     </Button>
+
+                     <Button fx:id="createUserButton" text="👤 Create User"
+                             style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 12 20; -fx-background-radius: 5; -fx-cursor: hand;">
+                        <font>
+                           <Font size="13.0" />
+                        </font>
+                     </Button>
+
+                     <Button fx:id="viewReportsButton" text="📊 View Reports"
+                             style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-padding: 12 20; -fx-background-radius: 5; -fx-cursor: hand;">
+                        <font>
+                           <Font size="13.0" />
+                        </font>
+                     </Button>
+
+                     <Button fx:id="statisticsExportButton" text="📈 Statistics &amp; Export"
+                             style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-padding: 12 20; -fx-background-radius: 5; -fx-cursor: hand;">
+                        <font>
+                           <Font size="13.0" />
+                        </font>
+                     </Button>
+                  </HBox>
+               </VBox>
+
+               <!-- Recent Activities -->
+               <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                  <Label text="Recent Activities" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+                  <ListView fx:id="recentActivitiesListView" prefHeight="200"
+                           style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-radius: 5;">
+                  </ListView>
+               </VBox>
+            </VBox>
+
+            <!-- Dynamic Content Containers -->
+            <VBox fx:id="userManagementContent" visible="false" managed="false" spacing="0" />
+            <VBox fx:id="taskManagementContent" visible="false" managed="false" spacing="0" />
+            <VBox fx:id="passwordResetContent" visible="false" managed="false" spacing="0" />
+            <VBox fx:id="reportsContent" visible="false" managed="false" spacing="0" />
+            <VBox fx:id="settingsContent" visible="false" managed="false" spacing="0" />
+            <VBox fx:id="chatContent" visible="false" managed="false" spacing="0" />
+            <VBox fx:id="aiChatbotContent" visible="false" managed="false" spacing="0" />
+
+         </VBox>
+      </ScrollPane>
+   </center>
+
+</BorderPane>

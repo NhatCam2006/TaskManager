@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.example.taskmanagerv3.controller.AdminSettingsController">
+
+   <!-- Top Header -->
+   <top>
+      <VBox style="-fx-background-color: #34495e; -fx-padding: 15;">
+         <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="System Settings" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="closeButton" text="Close" 
+                    style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+         </HBox>
+      </VBox>
+   </top>
+
+   <!-- Left Sidebar - Categories -->
+   <left>
+      <VBox spacing="10" style="-fx-background-color: #ecf0f1; -fx-padding: 20;" prefWidth="200">
+         <Label text="Categories" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+         
+         <Button fx:id="generalButton" text="General" 
+                 style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5;" 
+                 prefWidth="160">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+         
+         <Button fx:id="securityButton" text="Security" 
+                 style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5;" 
+                 prefWidth="160">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+         
+         <Button fx:id="notificationsButton" text="Notifications" 
+                 style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5;" 
+                 prefWidth="160">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+         
+         <Button fx:id="databaseButton" text="Database" 
+                 style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5;" 
+                 prefWidth="160">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+         
+         <Button fx:id="backupButton" text="Backup" 
+                 style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5;" 
+                 prefWidth="160">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+      </VBox>
+   </left>
+
+   <!-- Center - Settings Content -->
+   <center>
+      <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+         <VBox fx:id="settingsContentArea" spacing="20" style="-fx-padding: 30;">
+            
+            <!-- General Settings -->
+            <VBox fx:id="generalSettings" spacing="15">
+               <Label text="General Settings" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+               
+               <VBox spacing="10" style="-fx-background-color: #f8f9fa; -fx-padding: 20; -fx-background-radius: 10;">
+                  <VBox spacing="5">
+                     <Label text="System Name:" style="-fx-font-weight: bold;" />
+                     <TextField fx:id="systemNameField" text="WorkFlow Manager" />
+                  </VBox>
+                  
+                  <VBox spacing="5">
+                     <Label text="Company Name:" style="-fx-font-weight: bold;" />
+                     <TextField fx:id="companyNameField" />
+                  </VBox>
+                  
+                  <VBox spacing="5">
+                     <Label text="Default Language:" style="-fx-font-weight: bold;" />
+                     <ComboBox fx:id="languageComboBox" prefWidth="200" />
+                  </VBox>
+                  
+                  <VBox spacing="5">
+                     <Label text="Time Zone:" style="-fx-font-weight: bold;" />
+                     <ComboBox fx:id="timeZoneComboBox" prefWidth="200" />
+                  </VBox>
+                  
+                  <CheckBox fx:id="enableLoggingCheckBox" text="Enable detailed logging" />
+                  <CheckBox fx:id="enableDebugModeCheckBox" text="Enable debug mode" />
+               </VBox>
+            </VBox>
+
+            <!-- Security Settings -->
+            <VBox fx:id="securitySettings" spacing="15">
+               <Label text="Security Settings" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+               
+               <VBox spacing="10" style="-fx-background-color: #fff5f5; -fx-padding: 20; -fx-background-radius: 10;">
+                  <VBox spacing="5">
+                     <Label text="Session Timeout (minutes):" style="-fx-font-weight: bold;" />
+                     <Spinner fx:id="sessionTimeoutSpinner" prefWidth="150" />
+                  </VBox>
+                  
+                  <VBox spacing="5">
+                     <Label text="Password Policy:" style="-fx-font-weight: bold;" />
+                     <VBox spacing="5">
+                        <CheckBox fx:id="requireUppercaseCheckBox" text="Require uppercase letters" />
+                        <CheckBox fx:id="requireNumbersCheckBox" text="Require numbers" />
+                        <CheckBox fx:id="requireSpecialCharsCheckBox" text="Require special characters" />
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                           <Label text="Minimum length:" />
+                           <Spinner fx:id="minPasswordLengthSpinner" prefWidth="100" />
+                        </HBox>
+                     </VBox>
+                  </VBox>
+                  
+                  <VBox spacing="5">
+                     <Label text="Login Attempts:" style="-fx-font-weight: bold;" />
+                     <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Max failed attempts:" />
+                        <Spinner fx:id="maxLoginAttemptsSpinner" prefWidth="100" />
+                     </HBox>
+                  </VBox>
+               </VBox>
+            </VBox>
+
+            <!-- Notification Settings -->
+            <VBox fx:id="notificationSettings" spacing="15">
+               <Label text="Notification Settings" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+               
+               <VBox spacing="10" style="-fx-background-color: #fff8e1; -fx-padding: 20; -fx-background-radius: 10;">
+                  <CheckBox fx:id="enableEmailNotificationsCheckBox" text="Enable email notifications" />
+                  <CheckBox fx:id="enableTaskRemindersCheckBox" text="Enable task reminders" />
+                  <CheckBox fx:id="enableDeadlineAlertsCheckBox" text="Enable deadline alerts" />
+                  
+                  <VBox spacing="5">
+                     <Label text="Email Server Settings:" style="-fx-font-weight: bold;" />
+                     <TextField fx:id="smtpServerField" promptText="SMTP Server" />
+                     <TextField fx:id="smtpPortField" promptText="SMTP Port" />
+                     <TextField fx:id="emailUsernameField" promptText="Email Username" />
+                     <PasswordField fx:id="emailPasswordField" promptText="Email Password" />
+                  </VBox>
+               </VBox>
+            </VBox>
+
+            <!-- Database Settings -->
+            <VBox fx:id="databaseSettings" spacing="15">
+               <Label text="Database Settings" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+               
+               <VBox spacing="10" style="-fx-background-color: #f0fff4; -fx-padding: 20; -fx-background-radius: 10;">
+                  <VBox spacing="5">
+                     <Label text="Database Connection:" style="-fx-font-weight: bold;" />
+                     <TextField fx:id="dbServerField" promptText="Database Server" />
+                     <TextField fx:id="dbNameField" promptText="Database Name" />
+                     <TextField fx:id="dbUsernameField" promptText="Database Username" />
+                     <PasswordField fx:id="dbPasswordField" promptText="Database Password" />
+                  </VBox>
+                  
+                  <HBox spacing="10">
+                     <Button fx:id="testConnectionButton" text="Test Connection" 
+                             style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+                        <font>
+                           <Font size="12.0" />
+                        </font>
+                     </Button>
+                     
+                     <Button fx:id="optimizeDatabaseButton" text="Optimize Database" 
+                             style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+                        <font>
+                           <Font size="12.0" />
+                        </font>
+                     </Button>
+                  </HBox>
+               </VBox>
+            </VBox>
+
+            <!-- Backup Settings -->
+            <VBox fx:id="backupSettings" spacing="15">
+               <Label text="Backup Settings" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+               
+               <VBox spacing="10" style="-fx-background-color: #f3e5f5; -fx-padding: 20; -fx-background-radius: 10;">
+                  <CheckBox fx:id="enableAutoBackupCheckBox" text="Enable automatic backup" />
+                  
+                  <VBox spacing="5">
+                     <Label text="Backup Frequency:" style="-fx-font-weight: bold;" />
+                     <ComboBox fx:id="backupFrequencyComboBox" prefWidth="200" />
+                  </VBox>
+                  
+                  <VBox spacing="5">
+                     <Label text="Backup Location:" style="-fx-font-weight: bold;" />
+                     <HBox spacing="10">
+                        <TextField fx:id="backupLocationField" prefWidth="300" />
+                        <Button fx:id="browseBackupLocationButton" text="Browse" 
+                                style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Button>
+                     </HBox>
+                  </VBox>
+                  
+                  <HBox spacing="10">
+                     <Button fx:id="createBackupButton" text="Create Backup Now" 
+                             style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+                        <font>
+                           <Font size="12.0" />
+                        </font>
+                     </Button>
+                     
+                     <Button fx:id="restoreBackupButton" text="Restore Backup" 
+                             style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+                        <font>
+                           <Font size="12.0" />
+                        </font>
+                     </Button>
+                  </HBox>
+               </VBox>
+            </VBox>
+         </VBox>
+      </ScrollPane>
+   </center>
+
+   <!-- Bottom - Action Buttons -->
+   <bottom>
+      <HBox spacing="15" alignment="CENTER" style="-fx-padding: 20; -fx-background-color: #ecf0f1;">
+         <Button fx:id="saveSettingsButton" text="Save Settings" 
+                 style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+         
+         <Button fx:id="resetToDefaultButton" text="Reset to Default" 
+                 style="-fx-background-color: #ffc107; -fx-text-fill: black; -fx-padding: 12 25; -fx-background-radius: 5;">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+         
+         <Button fx:id="cancelButton" text="Cancel" 
+                 style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
+      </HBox>
+   </bottom>
+
+</BorderPane>

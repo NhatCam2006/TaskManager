@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.example.taskmanagerv3.controller.EditUserController"
+      spacing="20" style="-fx-padding: 20;" prefWidth="500" prefHeight="650">
+
+   <!-- Header -->
+   <VBox spacing="10">
+      <Label text="Edit User" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+      <Separator />
+   </VBox>
+
+   <!-- User Information Form -->
+   <VBox spacing="15">
+      
+      <!-- Username (Read-only) -->
+      <VBox spacing="5">
+         <Label text="Username:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="usernameField" editable="false" 
+                    style="-fx-background-color: #f8f9fa;" />
+      </VBox>
+
+      <!-- Full Name -->
+      <VBox spacing="5">
+         <Label text="Full Name:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="fullNameField" />
+      </VBox>
+
+      <!-- Email -->
+      <VBox spacing="5">
+         <Label text="Email:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="emailField" />
+      </VBox>
+
+      <!-- Role -->
+      <VBox spacing="5">
+         <Label text="Role:" style="-fx-font-weight: bold;" />
+         <ComboBox fx:id="roleComboBox" prefWidth="200" />
+      </VBox>
+
+      <!-- Department -->
+      <VBox spacing="5">
+         <Label text="Department:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="departmentField" />
+      </VBox>
+
+      <!-- Phone -->
+      <VBox spacing="5">
+         <Label text="Phone:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="phoneField" />
+      </VBox>
+
+      <!-- Active Status -->
+      <VBox spacing="5">
+         <Label text="Status:" style="-fx-font-weight: bold;" />
+         <CheckBox fx:id="activeCheckBox" text="Active User" />
+      </VBox>
+
+      <!-- Password Reset Section -->
+      <VBox spacing="10" style="-fx-background-color: #fff3cd; -fx-padding: 15; -fx-background-radius: 5;">
+         <Label text="Password Management" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+         
+         <VBox spacing="5">
+            <Label text="New Password (leave empty to keep current):" style="-fx-font-weight: bold;" />
+            <PasswordField fx:id="newPasswordField" />
+         </VBox>
+
+         <VBox spacing="5">
+            <Label text="Confirm New Password:" style="-fx-font-weight: bold;" />
+            <PasswordField fx:id="confirmPasswordField" />
+         </VBox>
+
+         <Button fx:id="generatePasswordButton" text="Generate Random Password" 
+                 style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;" 
+                 prefWidth="200">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+      </VBox>
+
+      <!-- User Statistics (Read-only) -->
+      <VBox spacing="10" style="-fx-background-color: #e8f4fd; -fx-padding: 15; -fx-background-radius: 5;">
+         <Label text="User Statistics" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+         
+         <GridPane hgap="20" vgap="10">
+            <columnConstraints>
+               <ColumnConstraints percentWidth="50" />
+               <ColumnConstraints percentWidth="50" />
+            </columnConstraints>
+            
+            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <Label text="Member Since:" style="-fx-font-weight: bold;" />
+               <Label fx:id="memberSinceLabel" text="N/A" />
+            </VBox>
+            
+            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+               <Label text="Last Login:" style="-fx-font-weight: bold;" />
+               <Label fx:id="lastLoginLabel" text="N/A" />
+            </VBox>
+            
+            <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
+               <Label text="Total Tasks:" style="-fx-font-weight: bold;" />
+               <Label fx:id="totalTasksLabel" text="0" />
+            </VBox>
+            
+            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <Label text="Completed Tasks:" style="-fx-font-weight: bold;" />
+               <Label fx:id="completedTasksLabel" text="0" />
+            </VBox>
+         </GridPane>
+      </VBox>
+   </VBox>
+
+   <!-- Action Buttons -->
+   <HBox spacing="15" alignment="CENTER">
+      <Button fx:id="saveButton" text="Save Changes" 
+              style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      
+      <Button fx:id="resetPasswordButton" text="Reset Password" 
+              style="-fx-background-color: #ffc107; -fx-text-fill: black; -fx-padding: 12 25; -fx-background-radius: 5;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      
+      <Button fx:id="cancelButton" text="Cancel" 
+              style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </HBox>
+
+</VBox>

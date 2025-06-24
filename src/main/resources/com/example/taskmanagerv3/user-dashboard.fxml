@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskmanagerv3.controller.UserDashboardController">
+
+   <!-- Left Navigation -->
+   <VBox prefWidth="200.0" spacing="15" style="-fx-background-color: #6f42c1; -fx-padding: 20;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="67.5">
+
+      <Button fx:id="myTasksButton" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 12; -fx-cursor: hand; -fx-background-radius: 8;" text="📋 My Tasks">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="calendarButton" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #e9ecef; -fx-alignment: CENTER_LEFT; -fx-padding: 12; -fx-cursor: hand; -fx-background-radius: 8;" text="📅 Calendar">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="profileButton" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #e9ecef; -fx-alignment: CENTER_LEFT; -fx-padding: 12; -fx-cursor: hand; -fx-background-radius: 8;" text="👤 My Profile">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="chatButton" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #e9ecef; -fx-alignment: CENTER_LEFT; -fx-padding: 12; -fx-cursor: hand; -fx-background-radius: 8;" text="💬 Chat with Admin">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="aiChatbotButton" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #e9ecef; -fx-alignment: CENTER_LEFT; -fx-padding: 12; -fx-cursor: hand; -fx-background-radius: 8;" text="🤖 AI Assistant">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+
+      <!-- Spacer to push refresh button to bottom -->
+      <AnchorPane VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="logoutButton" layoutY="-3.0" style="-fx-background-color: #6f42c1; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 20;" text="Logout">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+
+      <Button maxWidth="Infinity" onAction="#refreshDashboard" style="-fx-background-color: #8a63d2; -fx-text-fill: white; -fx-padding: 12; -fx-background-radius: 8; -fx-cursor: hand;" text="🔄 Refresh">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+   </VBox>
+
+   <!-- Main Content -->
+   <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="67.5">
+      <!-- Dynamic Content Container -->
+      <VBox fx:id="mainContentContainer" spacing="20" style="-fx-padding: 20;">
+
+         <!-- Dashboard Content (Default View) -->
+         <VBox fx:id="dashboardContent" spacing="20">
+            <!-- Statistics Cards Row -->
+            <HBox alignment="CENTER" spacing="70.0">
+               <!-- My Tasks Card -->
+               <VBox fx:id="myTasksCard" alignment="CENTER" prefHeight="120.0" prefWidth="200.0" spacing="8" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2); -fx-cursor: hand;" onMouseClicked="#showMyTasks">
+                  <Label style="-fx-font-size: 24;" text="📋" />
+                  <Label fx:id="myTasksLabel" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #6f42c1;" text="0" />
+                  <Label style="-fx-font-size: 11; -fx-text-fill: #6c757d; -fx-font-weight: 500;" text="MY TASKS" />
+               </VBox>
+
+            <!-- Completed Tasks Card -->
+            <VBox fx:id="completedTasksCard" alignment="CENTER" prefHeight="120.0" prefWidth="200.0" spacing="8" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+               <Label style="-fx-font-size: 24;" text="✅" />
+               <Label fx:id="completedTasksLabel" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #6f42c1;" text="0" />
+               <Label style="-fx-font-size: 11; -fx-text-fill: #6c757d; -fx-font-weight: 500;" text="COMPLETED" />
+            </VBox>
+
+            <!-- Pending Tasks Card -->
+            <VBox fx:id="pendingTasksCard" alignment="CENTER" prefHeight="120.0" prefWidth="200.0" spacing="8" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+               <Label style="-fx-font-size: 24;" text="⏳" />
+               <Label fx:id="pendingTasksLabel" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #6f42c1;" text="0" />
+               <Label style="-fx-font-size: 11; -fx-text-fill: #6c757d; -fx-font-weight: 500;" text="PENDING" />
+            </VBox>
+
+            <!-- Overdue Tasks Card -->
+            <VBox fx:id="overdueTasksCard" alignment="CENTER" prefHeight="120.0" prefWidth="200.0" spacing="8" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+               <Label style="-fx-font-size: 24;" text="🚨" />
+               <Label fx:id="overdueTasksLabel" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #6f42c1;" text="0" />
+               <Label style="-fx-font-size: 11; -fx-text-fill: #6c757d; -fx-font-weight: 500;" text="OVERDUE" />
+            </VBox>
+         </HBox>
+
+         <!-- Charts Section -->
+         <HBox alignment="CENTER" prefHeight="242.0" prefWidth="1678.0" spacing="20">
+            <!-- Task Progress Chart -->
+            <VBox prefHeight="210.0" prefWidth="246.0" spacing="15" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+               <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #495057;" text="Task Progress" />
+
+               <!-- Simple Progress Bars -->
+               <VBox spacing="12">
+                  <HBox alignment="CENTER_LEFT" spacing="10">
+                     <Label style="-fx-font-size: 12; -fx-text-fill: #6c757d; -fx-min-width: 80;" text="Completed" />
+                     <ProgressBar fx:id="completedProgressBar" prefHeight="12.0" prefWidth="250.0" progress="0.0" style="-fx-accent: #6f42c1;" HBox.hgrow="ALWAYS" />
+                     <Label fx:id="completedPercentLabel" style="-fx-font-size: 12; -fx-text-fill: #6f42c1; -fx-font-weight: bold;" text="0%" />
+                  </HBox>
+
+                  <HBox alignment="CENTER_LEFT" spacing="10">
+                     <Label style="-fx-font-size: 12; -fx-text-fill: #6c757d; -fx-min-width: 80;" text="In Progress" />
+                     <ProgressBar fx:id="inProgressBar" prefHeight="12.0" prefWidth="250.0" progress="0.0" style="-fx-accent: #8a63d2;" HBox.hgrow="ALWAYS" />
+                     <Label fx:id="inProgressPercentLabel" style="-fx-font-size: 12; -fx-text-fill: #8a63d2; -fx-font-weight: bold;" text="0%" />
+                  </HBox>
+
+                  <HBox alignment="CENTER_LEFT" spacing="10">
+                     <Label style="-fx-font-size: 12; -fx-text-fill: #6c757d; -fx-min-width: 80;" text="Pending" />
+                     <ProgressBar fx:id="pendingProgressBar" prefHeight="12.0" prefWidth="250.0" progress="0.0" style="-fx-accent: #a584e8;" HBox.hgrow="ALWAYS" />
+                     <Label fx:id="pendingPercentLabel" style="-fx-font-size: 12; -fx-text-fill: #a584e8; -fx-font-weight: bold;" text="0%" />
+                  </HBox>
+
+                  <HBox alignment="CENTER_LEFT" spacing="10">
+                     <Label style="-fx-font-size: 12; -fx-text-fill: #6c757d; -fx-min-width: 80;" text="Overdue" />
+                     <ProgressBar fx:id="overdueProgressBar" prefHeight="12.0" prefWidth="250.0" progress="0.0" style="-fx-accent: #dc3545;" HBox.hgrow="ALWAYS" />
+                     <Label fx:id="overduePercentLabel" style="-fx-font-size: 12; -fx-text-fill: #dc3545; -fx-font-weight: bold;" text="0%" />
+                  </HBox>
+               </VBox>
+            </VBox>
+
+            <!-- Weekly Activity Chart -->
+            <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+               <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #495057;" text="Weekly Activity" />
+
+               <!-- Dynamic Bar Chart with VBox Bars -->
+               <HBox alignment="BOTTOM_CENTER" prefHeight="140" spacing="12">
+                  <VBox alignment="BOTTOM_CENTER" spacing="8">
+                     <VBox alignment="BOTTOM_CENTER" spacing="3">
+                        <Label fx:id="mondayCountLabel" style="-fx-font-size: 9; -fx-text-fill: #6f42c1; -fx-font-weight: bold;" text="0" />
+                        <VBox fx:id="mondayBar" prefWidth="18.0" style="-fx-background-color: #6f42c1; -fx-background-radius: 3;" />
+                     </VBox>
+                     <Label style="-fx-font-size: 10; -fx-text-fill: #6c757d; -fx-font-weight: 500;" text="Mon" />
+                  </VBox>
+                  <VBox alignment="BOTTOM_CENTER" spacing="8">
+                     <VBox alignment="BOTTOM_CENTER" spacing="3">
+                        <Label fx:id="tuesdayCountLabel" style="-fx-font-size: 9; -fx-text-fill: #8a63d2; -fx-font-weight: bold;" text="0" />
+                        <VBox fx:id="tuesdayBar" prefWidth="18.0" style="-fx-background-color: #8a63d2; -fx-background-radius: 3;" />
+                     </VBox>
+                     <Label style="-fx-font-size: 10; -fx-text-fill: #6c757d; -fx-font-weight: 500;" text="Tue" />
+                  </VBox>
+                  <VBox alignment="BOTTOM_CENTER" spacing="8">
+                     <VBox alignment="BOTTOM_CENTER" spacing="3">
+                        <Label fx:id="wednesdayCountLabel" style="-fx-font-size: 9; -fx-text-fill: #a584e8; -fx-font-weight: bold;" text="0" />
+                        <VBox fx:id="wednesdayBar" prefWidth="18.0" style="-fx-background-color: #a584e8; -fx-background-radius: 3;" />
+                     </VBox>
+                     <Label style="-fx-font-size: 10; -fx-text-fill: #6c757d; -fx-font-weight: 500;" text="Wed" />
+                  </VBox>
+                  <VBox alignment="BOTTOM_CENTER" spacing="8">
+                     <VBox alignment="BOTTOM_CENTER" spacing="3">
+                        <Label fx:id="thursdayCountLabel" style="-fx-font-size: 9; -fx-text-fill: #c29ffa; -fx-font-weight: bold;" text="0" />
+                        <VBox fx:id="thursdayBar" prefWidth="18.0" style="-fx-background-color: #c29ffa; -fx-background-radius: 3;" />
+                     </VBox>
+                     <Label style="-fx-font-size: 10; -fx-text-fill: #6c757d; -fx-font-weight: 500;" text="Thu" />
+                  </VBox>
+                  <VBox alignment="BOTTOM_CENTER" spacing="8">
+                     <VBox alignment="BOTTOM_CENTER" spacing="3">
+                        <Label fx:id="fridayCountLabel" style="-fx-font-size: 9; -fx-text-fill: #6f42c1; -fx-font-weight: bold;" text="0" />
+                        <VBox fx:id="fridayBar" prefWidth="18.0" style="-fx-background-color: #6f42c1; -fx-background-radius: 3;" />
+                     </VBox>
+                     <Label style="-fx-font-size: 10; -fx-text-fill: #6c757d; -fx-font-weight: 500;" text="Fri" />
+                  </VBox>
+                  <VBox alignment="BOTTOM_CENTER" spacing="8">
+                     <VBox alignment="BOTTOM_CENTER" spacing="3">
+                        <Label fx:id="saturdayCountLabel" style="-fx-font-size: 9; -fx-text-fill: #8a63d2; -fx-font-weight: bold;" text="0" />
+                        <VBox fx:id="saturdayBar" prefWidth="18.0" style="-fx-background-color: #8a63d2; -fx-background-radius: 3;" />
+                     </VBox>
+                     <Label style="-fx-font-size: 10; -fx-text-fill: #6c757d; -fx-font-weight: 500;" text="Sat" />
+                  </VBox>
+                  <VBox alignment="BOTTOM_CENTER" spacing="8">
+                     <VBox alignment="BOTTOM_CENTER" spacing="3">
+                        <Label fx:id="sundayCountLabel" style="-fx-font-size: 9; -fx-text-fill: #a584e8; -fx-font-weight: bold;" text="0" />
+                        <VBox fx:id="sundayBar" prefWidth="18.0" style="-fx-background-color: #a584e8; -fx-background-radius: 3;" />
+                     </VBox>
+                     <Label style="-fx-font-size: 10; -fx-text-fill: #6c757d; -fx-font-weight: 500;" text="Sun" />
+                  </VBox>
+               </HBox>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox.margin>
+               <Insets top="20.0" />
+            </VBox.margin>
+         </HBox>
+
+         <!-- Two Column Layout -->
+         <HBox alignment="TOP_CENTER" spacing="20">
+            <!-- My Tasks -->
+            <VBox fx:id="myTasksPanel" spacing="15" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+               <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #495057;" text="My Tasks" />
+
+               <ListView fx:id="myTasksListView" prefHeight="250" style="-fx-background-color: #f8f9fa; -fx-border-color: #e9ecef; -fx-border-radius: 8;">
+               </ListView>
+            </VBox>
+
+            <!-- Recent Activities -->
+            <VBox fx:id="recentActivitiesPanel" spacing="15" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+               <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #495057;" text="Recent Activities" />
+
+               <ListView fx:id="recentActivitiesListView" prefHeight="250" style="-fx-background-color: #f8f9fa; -fx-border-color: #e9ecef; -fx-border-radius: 8;">
+               </ListView>
+            </VBox>
+            <VBox.margin>
+               <Insets top="20.0" />
+            </VBox.margin>
+            </HBox>
+         </VBox>
+
+         <!-- Task Management Content (Hidden by default) -->
+         <VBox fx:id="taskManagementContent" spacing="20" visible="false" managed="false">
+            <!-- Task management content will be loaded here dynamically -->
+         </VBox>
+
+         <!-- Calendar Content (Hidden by default) -->
+         <VBox fx:id="calendarContent" spacing="20" visible="false" managed="false">
+            <!-- Calendar content will be loaded here dynamically -->
+         </VBox>
+
+         <!-- Profile Content (Hidden by default) -->
+         <VBox fx:id="profileContent" spacing="20" visible="false" managed="false">
+            <!-- Profile content will be loaded here dynamically -->
+         </VBox>
+
+         <!-- Chat Content (Hidden by default) -->
+         <VBox fx:id="chatContent" spacing="20" visible="false" managed="false">
+            <!-- Chat content will be loaded here dynamically -->
+         </VBox>
+
+         <!-- AI Chatbot Content (Hidden by default) -->
+         <VBox fx:id="aiChatbotContent" spacing="20" visible="false" managed="false">
+            <!-- AI Chatbot content will be loaded here dynamically -->
+         </VBox>
+
+      </VBox>
+   </ScrollPane>
+   <HBox prefHeight="67.0" prefWidth="1859.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <children>
+         <Label text="WorkFlow Manager" textFill="#6f42c1">
+            <font>
+               <Font name="System Bold" size="20.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="25.0" top="20.0" />
+            </HBox.margin>
+         </Label>
+         <Label fx:id="currentTimeLabel" prefHeight="18.0" prefWidth="346.0" textFill="#6c757d">
+            <font>
+               <Font size="12.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="500.0" top="23.0" />
+            </HBox.margin>
+         </Label>
+         <Label fx:id="welcomeLabel" textFill="#495057">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="300.0" top="20.0" />
+            </HBox.margin>
+         </Label>
+      </children>
+   </HBox>
+
+</AnchorPane>

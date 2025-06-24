@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taskmanagerv3.controller.TaskManagementController"
+            fitToWidth="true" style="-fx-background-color: #f8f9fa;">
+   <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #f8f9fa;">
+
+   <!-- Header -->
+   <HBox alignment="CENTER_LEFT" spacing="20">
+      <Label text="Task Management" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+      <Region HBox.hgrow="ALWAYS" />
+      <Button fx:id="refreshButton" text="🔄 Refresh"
+              style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5; -fx-cursor: hand;">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+   </HBox>
+
+   <!-- Filters and Search -->
+   <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);">
+      <Label text="Filters &amp; Search" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+
+      <HBox spacing="15" alignment="CENTER_LEFT">
+         <Label text="Search:" style="-fx-font-weight: bold; -fx-text-fill: #555;" />
+         <TextField fx:id="searchField" promptText="Search by title or description..."
+                   prefWidth="250" style="-fx-padding: 8; -fx-border-color: #bdc3c7; -fx-border-radius: 4;" />
+
+         <Label text="Status:" style="-fx-font-weight: bold; -fx-text-fill: #555;" />
+         <ComboBox fx:id="statusFilterComboBox" prefWidth="150"
+                  style="-fx-padding: 8; -fx-border-color: #bdc3c7; -fx-border-radius: 4;" />
+      </HBox>
+   </VBox>
+
+   <!-- Action Buttons -->
+   <HBox spacing="10" alignment="CENTER_LEFT">
+      <Button fx:id="createTaskButton" text="➕ Create Task"
+              style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5; -fx-cursor: hand;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="editTaskButton" text="✏️ Edit Task"
+              style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5; -fx-cursor: hand;">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="deleteTaskButton" text="🗑️ Delete Task"
+              style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5; -fx-cursor: hand;">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+
+      <Region HBox.hgrow="ALWAYS" />
+
+      <Button fx:id="closeButton" text="Close"
+              style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5; -fx-cursor: hand;">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+   </HBox>
+
+   <!-- Tasks Table -->
+   <VBox VBox.vgrow="ALWAYS" spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);">
+      <Label text="Tasks List" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+
+      <TableView fx:id="tasksTable" VBox.vgrow="ALWAYS"
+                style="-fx-border-color: #dee2e6; -fx-border-radius: 4;">
+         <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+            <TableColumn fx:id="titleColumn" text="Title" prefWidth="200" />
+            <TableColumn fx:id="statusColumn" text="Status" prefWidth="120" />
+            <TableColumn fx:id="priorityColumn" text="Priority" prefWidth="100" />
+            <TableColumn fx:id="assignedUserColumn" text="Assigned To" prefWidth="150" />
+            <TableColumn fx:id="dueDateColumn" text="Due Date" prefWidth="100" />
+            <TableColumn fx:id="progressColumn" text="Progress" prefWidth="80" />
+         </columns>
+
+         <placeholder>
+            <Label text="No tasks found" style="-fx-text-fill: #7f8c8d; -fx-font-style: italic;" />
+         </placeholder>
+      </TableView>
+   </VBox>
+
+   <!-- Status Bar -->
+   <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #ecf0f1; -fx-background-radius: 5;">
+      <Label fx:id="totalTasksLabel" text="Total: 0 tasks" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+      <Separator orientation="VERTICAL" />
+      <Label fx:id="selectedTaskLabel" text="No task selected" style="-fx-text-fill: #7f8c8d;" />
+   </HBox>
+
+   </VBox>
+</ScrollPane>

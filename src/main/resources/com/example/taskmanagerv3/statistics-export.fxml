@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.example.taskmanagerv3.controller.StatisticsExportController">
+
+   <!-- Top Header -->
+   <top>
+      <VBox style="-fx-background-color: #2c3e50; -fx-padding: 15;">
+         <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Statistics &amp; Export Center" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="closeButton" text="Close" 
+                    style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+         </HBox>
+         
+         <!-- Status Bar -->
+         <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10 0 0 0;">
+            <ProgressBar fx:id="exportProgressBar" prefWidth="200" visible="false" />
+            <Label fx:id="exportStatusLabel" text="Ready" textFill="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </HBox>
+      </VBox>
+   </top>
+
+   <!-- Main Content -->
+   <center>
+      <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE">
+         
+         <!-- Statistics Tab -->
+         <Tab text="Statistics &amp; Charts">
+            <VBox spacing="15" style="-fx-padding: 20;">
+               
+               <!-- Chart Controls -->
+               <HBox spacing="15" alignment="CENTER_LEFT">
+                  <Label text="Chart Type:" style="-fx-font-weight: bold;" />
+                  <ComboBox fx:id="chartTypeComboBox" prefWidth="200" />
+                  <Button fx:id="refreshChartsButton" text="Refresh" 
+                          style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;" />
+                  <Button fx:id="exportChartsButton" text="Export Charts" 
+                          style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;" />
+               </HBox>
+               
+               <Separator />
+               
+               <!-- Chart Display Area -->
+               <ScrollPane fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS">
+                  <VBox fx:id="chartContainer" alignment="CENTER" style="-fx-padding: 10;" />
+               </ScrollPane>
+               
+            </VBox>
+         </Tab>
+         
+         <!-- Export Tab -->
+         <Tab text="Data Export">
+            <VBox spacing="20" style="-fx-padding: 20;">
+               
+               <!-- Date Range Selection -->
+               <VBox spacing="10">
+                  <Label text="Export Options" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                  
+                  <HBox spacing="15" alignment="CENTER_LEFT">
+                     <Label text="Date Range:" />
+                     <Label text="From:" />
+                     <DatePicker fx:id="fromDatePicker" />
+                     <Label text="To:" />
+                     <DatePicker fx:id="toDatePicker" />
+                  </HBox>
+               </VBox>
+               
+               <Separator />
+               
+               <!-- Export Options -->
+               <VBox spacing="15">
+                  <Label text="Export Data" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                  
+                  <HBox spacing="15">
+                     <VBox spacing="10" style="-fx-padding: 15; -fx-border-color: #bdc3c7; -fx-border-radius: 5;">
+                        <Label text="Statistics Report" style="-fx-font-weight: bold;" />
+                        <Label text="Export comprehensive statistics to Excel format" style="-fx-text-fill: #7f8c8d;" />
+                        <Button fx:id="exportStatisticsExcelButton" text="Export to Excel" 
+                                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;" 
+                                prefWidth="150" />
+                     </VBox>
+                     
+                     <VBox spacing="10" style="-fx-padding: 15; -fx-border-color: #bdc3c7; -fx-border-radius: 5;">
+                        <Label text="Statistical Charts" style="-fx-font-weight: bold;" />
+                        <Label text="Export all charts as PNG images" style="-fx-text-fill: #7f8c8d;" />
+                        <Button fx:id="exportStatisticsChartsButton" text="Export Charts" 
+                                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;" 
+                                prefWidth="150" />
+                     </VBox>
+                  </HBox>
+               </VBox>
+               
+            </VBox>
+         </Tab>
+         
+         <!-- Log Export Tab -->
+         <Tab text="Log Export">
+            <VBox spacing="20" style="-fx-padding: 20;">
+               
+               <!-- Log Export Controls -->
+               <VBox spacing="15">
+                  <Label text="Application Log Export" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                  
+                  <HBox spacing="15" alignment="CENTER_LEFT">
+                     <Label text="Date Range:" />
+                     <Label text="From:" />
+                     <DatePicker fx:id="logFromDatePicker" />
+                     <Label text="To:" />
+                     <DatePicker fx:id="logToDatePicker" />
+                  </HBox>
+                  
+                  <HBox spacing="15" alignment="CENTER_LEFT">
+                     <Label text="Export Format:" />
+                     <ComboBox fx:id="logFormatComboBox" prefWidth="150" />
+                     <Button fx:id="exportLogsButton" text="Export Logs" 
+                             style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;" />
+                  </HBox>
+               </VBox>
+               
+               <Separator />
+               
+               <!-- Log Statistics -->
+               <VBox spacing="10">
+                  <Label text="Log Statistics" style="-fx-font-weight: bold;" />
+                  <Label fx:id="logStatsLabel" text="Select date range to view statistics" style="-fx-text-fill: #7f8c8d;" />
+               </VBox>
+               
+               <Separator />
+               
+               <!-- Log Preview -->
+               <VBox spacing="10" VBox.vgrow="ALWAYS">
+                  <Label text="Log Preview" style="-fx-font-weight: bold;" />
+                  <TextArea fx:id="logPreviewArea" editable="false" VBox.vgrow="ALWAYS" 
+                           style="-fx-font-family: 'Courier New'; -fx-font-size: 11px;" 
+                           promptText="Log preview will appear here..." />
+               </VBox>
+               
+            </VBox>
+         </Tab>
+         
+      </TabPane>
+   </center>
+
+</BorderPane>

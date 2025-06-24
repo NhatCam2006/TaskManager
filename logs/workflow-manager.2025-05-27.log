@@ -1,0 +1,296 @@
+2025-05-27 00:14:37.864 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:14:37.914 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:14:38.105 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 00:14:38.146 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:14:38.260 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 00:14:38.579 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 00:14:38.948 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 00:16:12.871 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:16:12.979 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 00:16:12.982 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 00:16:13.020 [JavaFX Application Thread] ERROR c.e.t.controller.LoginController - Failed to load dashboard
+javafx.fxml.LoadException: 
+/C:/Users/ASUS/IdeaProjects/TaskManagerV3/target/classes/com/example/taskmanagerv3/user-dashboard.fxml:96
+
+	at javafx.fxml/javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2714)
+	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2692)
+	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2555)
+	at javafx.fxml/javafx.fxml.FXMLLoader.load(FXMLLoader.java:2523)
+	at com.example.taskmanagerv3/com.example.taskmanagerv3.controller.LoginController.navigateToDashboard(LoginController.java:147)
+	at com.example.taskmanagerv3/com.example.taskmanagerv3.controller.LoginController.lambda$handleLogin$5(LoginController.java:98)
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456)
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:96)
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: java.lang.IllegalArgumentException: Can not set javafx.scene.layout.VBox field com.example.taskmanagerv3.controller.UserDashboardController.mainContentArea to javafx.scene.layout.AnchorPane
+	at java.base/jdk.internal.reflect.FieldAccessorImpl.throwSetIllegalArgumentException(FieldAccessorImpl.java:228)
+	at java.base/jdk.internal.reflect.FieldAccessorImpl.throwSetIllegalArgumentException(FieldAccessorImpl.java:232)
+	at java.base/jdk.internal.reflect.MethodHandleObjectFieldAccessorImpl.set(MethodHandleObjectFieldAccessorImpl.java:115)
+	at java.base/java.lang.reflect.Field.set(Field.java:836)
+	at javafx.fxml/javafx.fxml.FXMLLoader.injectFields(FXMLLoader.java:1173)
+	at javafx.fxml/javafx.fxml.FXMLLoader$ValueElement.processValue(FXMLLoader.java:868)
+	at javafx.fxml/javafx.fxml.FXMLLoader$ValueElement.processStartElement(FXMLLoader.java:762)
+	at javafx.fxml/javafx.fxml.FXMLLoader.processStartElement(FXMLLoader.java:2845)
+	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2641)
+	... 11 common frames omitted
+2025-05-27 00:16:15.525 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 00:16:44.685 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:16:44.715 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:16:44.743 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 00:16:44.770 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:16:44.838 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 00:16:45.142 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 00:16:45.489 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 00:16:51.476 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:16:51.569 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 00:16:51.572 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 00:16:51.636 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 00:16:51.697 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:16:52.148 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 00:16:56.530 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 00:19:22.890 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:19:22.942 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:19:23.000 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 00:19:23.032 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:19:23.146 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 00:19:23.441 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 00:19:23.762 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 00:19:29.955 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:19:30.044 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 00:19:30.047 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 00:19:30.103 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 00:19:30.130 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:19:30.381 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 00:19:33.530 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 00:20:23.266 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:20:23.297 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:20:23.331 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 00:20:23.354 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:20:23.414 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 00:20:23.664 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 00:20:23.958 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 00:20:32.870 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:20:32.960 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 00:20:32.963 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 00:20:33.019 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 00:20:33.051 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:20:33.292 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 00:20:37.833 [JavaFX Application Thread] INFO  c.e.t.c.UserTaskManagementController - User task management initialized for user: user1
+2025-05-27 00:20:37.869 [Thread-6] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:20:37.963 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - Navigated to task management interface
+2025-05-27 00:20:39.551 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 00:20:39.649 [Thread-7] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:21:12.404 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 00:23:59.808 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:23:59.841 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:23:59.878 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 00:23:59.907 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:23:59.969 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 00:24:00.236 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 00:24:00.533 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 00:24:13.798 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:24:13.932 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 00:24:13.936 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 00:24:14.002 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 00:24:14.065 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 00:24:14.320 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 00:24:18.485 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 22:12:30.048 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:12:30.078 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:12:30.272 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 22:12:30.297 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:12:30.461 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 22:12:30.920 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 22:12:31.339 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 22:12:42.773 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:12:42.915 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 22:12:42.918 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 22:12:43.061 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 22:12:43.107 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:12:43.653 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 22:12:58.999 [JavaFX Application Thread] INFO  c.e.t.c.UserCalendarController - User calendar initialized for user: user1
+2025-05-27 22:12:59.076 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - Opened calendar view
+2025-05-27 22:12:59.129 [Thread-6] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:13:21.969 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 22:15:22.080 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:15:22.109 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:15:22.132 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 22:15:22.171 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:15:22.243 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 22:15:22.508 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 22:15:22.835 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 22:15:31.807 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:15:31.911 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 22:15:31.915 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 22:15:32.008 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 22:15:32.221 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:15:32.331 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 22:15:43.407 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 22:16:12.243 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:16:12.271 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:16:12.298 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 22:16:12.321 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:16:12.387 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 22:16:12.675 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 22:16:12.988 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 22:16:18.870 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:16:18.968 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 22:16:18.972 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 22:16:19.068 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 22:16:19.266 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:16:19.392 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 22:16:34.716 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 22:17:29.572 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:17:29.641 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:17:29.669 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 22:17:29.695 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:17:29.775 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 22:17:30.077 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 22:17:30.392 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 22:17:36.671 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:17:36.760 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 22:17:36.764 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 22:17:36.841 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 22:17:36.950 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:17:37.129 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 22:17:39.497 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 22:19:00.958 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:19:00.986 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:19:01.012 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 22:19:01.034 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:19:01.099 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 22:19:01.359 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 22:19:01.660 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 22:19:07.228 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:19:07.328 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 22:19:07.331 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 22:19:07.400 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 22:19:07.515 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:19:07.699 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 22:19:14.518 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 22:33:07.365 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:33:07.417 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:33:07.734 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 22:33:07.759 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:33:07.874 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 22:33:08.211 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 22:33:08.585 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 22:33:14.297 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:33:14.410 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 22:33:14.413 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 22:33:14.479 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 22:33:14.545 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:33:14.767 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 22:36:44.361 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 22:39:08.678 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:39:08.711 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:39:08.738 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 22:39:08.762 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:39:08.826 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 22:39:09.116 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 22:39:09.412 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 22:39:14.721 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:39:14.809 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 22:39:14.813 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 22:39:14.875 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 22:39:14.909 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 22:39:15.173 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 22:39:32.805 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 23:02:37.677 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:02:37.706 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:02:37.820 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 23:02:37.844 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:02:37.938 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 23:02:38.211 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 23:02:38.527 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 23:02:44.642 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:02:44.749 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 23:02:44.752 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 23:02:44.820 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 23:02:44.851 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:02:45.416 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 23:02:47.224 [JavaFX Application Thread] INFO  c.e.t.c.UserCalendarController - User calendar initialized for user: user1
+2025-05-27 23:02:47.289 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - Opened calendar view
+2025-05-27 23:02:47.348 [Thread-6] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:02:59.581 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 23:30:28.241 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:30:28.287 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:30:28.411 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 23:30:28.436 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:30:28.546 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 23:30:29.003 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 23:30:29.471 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 23:30:40.260 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:30:40.533 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 23:30:40.537 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 23:30:40.707 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 23:30:40.871 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:30:41.179 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 23:30:48.251 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 23:39:06.191 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:39:06.225 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:39:06.341 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 23:39:06.367 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:39:06.470 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 23:39:06.798 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 23:39:07.154 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 23:39:13.797 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:39:13.922 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 23:39:13.929 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 23:39:13.980 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 23:39:14.006 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:39:14.424 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 23:52:52.157 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:52:52.184 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:52:52.303 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 23:52:52.325 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:52:52.439 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 23:52:52.763 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 23:52:53.091 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 23:52:59.324 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:52:59.447 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 23:52:59.452 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 23:52:59.503 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 23:52:59.522 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:52:59.892 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 23:53:05.230 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 23:53:18.432 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:53:18.460 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:53:18.483 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 23:53:18.508 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:53:18.571 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 23:53:18.855 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 23:53:19.160 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 23:53:24.896 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:53:24.995 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 23:53:24.998 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 23:53:25.045 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 23:53:25.072 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:53:25.302 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 23:53:35.309 [JavaFX Application Thread] INFO  c.e.t.c.UserCalendarController - User calendar initialized for user: user1
+2025-05-27 23:53:35.343 [Thread-6] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:53:35.403 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - Opened calendar view
+2025-05-27 23:53:36.995 [JavaFX Application Thread] INFO  c.e.t.c.UserProfileController - User profile initialized for user: user1
+2025-05-27 23:53:37.066 [Thread-7] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:53:37.102 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - Opened profile management
+2025-05-27 23:53:40.842 [JavaFX Application Thread] INFO  c.e.t.c.UserCalendarController - User calendar initialized for user: user1
+2025-05-27 23:53:40.888 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - Opened calendar view
+2025-05-27 23:53:40.943 [Thread-8] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:54:01.738 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed
+2025-05-27 23:57:20.476 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:57:20.515 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:57:20.562 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database schema initialized successfully
+2025-05-27 23:57:20.584 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:57:20.644 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - Database initialized successfully
+2025-05-27 23:57:20.988 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Login controller initialized
+2025-05-27 23:57:21.294 [JavaFX Application Thread] INFO  c.e.t.WorkFlowManagerApplication - WorkFlow Manager application started successfully
+2025-05-27 23:57:28.420 [Thread-3] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:57:28.516 [Thread-3] INFO  c.e.t.service.UserService - User authenticated successfully: user1
+2025-05-27 23:57:28.519 [JavaFX Application Thread] INFO  c.e.t.util.SessionManager - User logged in: user1 (User)
+2025-05-27 23:57:28.563 [JavaFX Application Thread] INFO  c.e.t.c.UserDashboardControllerc - User dashboard initialized for user: user1
+2025-05-27 23:57:28.588 [Thread-4] INFO  c.e.t.config.DatabaseConfig - Database connection established successfully
+2025-05-27 23:57:28.790 [JavaFX Application Thread] INFO  c.e.t.controller.LoginController - Navigated to dashboard for user: user1 (User)
+2025-05-27 23:57:37.646 [JavaFX Application Thread] INFO  c.e.t.config.DatabaseConfig - Database connection closed

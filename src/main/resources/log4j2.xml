@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF">
+    <!-- This configuration redirects Log4j2 to SLF4J -->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    
+    <Loggers>
+        <!-- Redirect all Log4j2 logging to SLF4J -->
+        <Root level="OFF">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

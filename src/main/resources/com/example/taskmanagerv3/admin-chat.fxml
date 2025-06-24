@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskmanagerv3.controller.AdminChatController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+
+   <!-- Admin Chat Header -->
+   <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: linear-gradient(to right, #e74c3c, #c0392b); -fx-padding: 15; -fx-background-radius: 10;">
+      <Label text="👨‍💼" style="-fx-font-size: 24px;" />
+      <VBox>
+         <Label text="Admin Chat Center" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;" />
+         <Label fx:id="onlineUsersLabel" text="0 users online" style="-fx-font-size: 12px; -fx-text-fill: rgba(255,255,255,0.8);" />
+      </VBox>
+      <Region HBox.hgrow="ALWAYS" />
+      <Button fx:id="refreshButton" text="🔄" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-background-radius: 15; -fx-cursor: hand;" />
+      <Button fx:id="settingsButton" text="⚙️" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-background-radius: 15; -fx-cursor: hand;" />
+   </HBox>
+
+   <!-- Main Content Area -->
+   <HBox spacing="15" VBox.vgrow="ALWAYS">
+
+      <!-- Left Panel - User List -->
+      <VBox spacing="10" prefWidth="300" style="-fx-background-color: #f8f9fa; -fx-background-radius: 10; -fx-border-color: #e9ecef; -fx-border-radius: 10; -fx-border-width: 1;">
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+
+         <Label text="💬 Active Conversations" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+
+         <!-- Search Users -->
+         <TextField fx:id="searchUsersField" promptText="🔍 Search users..."
+                    style="-fx-background-radius: 8; -fx-border-color: #ced4da; -fx-border-radius: 8;" />
+
+         <!-- Users List -->
+         <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                     style="-fx-background-color: transparent; -fx-border-color: transparent;">
+            <VBox fx:id="usersListContainer" spacing="5">
+               <!-- Users will be added dynamically -->
+            </VBox>
+         </ScrollPane>
+
+         <!-- Quick Stats -->
+         <VBox spacing="5" style="-fx-background-color: white; -fx-padding: 10; -fx-background-radius: 8;">
+            <Label text="📊 Quick Stats" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+            <HBox spacing="10">
+               <Label fx:id="totalMessagesLabel" text="0 messages" style="-fx-font-size: 11px; -fx-text-fill: #6c757d;" />
+               <Label fx:id="unreadMessagesLabel" text="0 unread" style="-fx-font-size: 11px; -fx-text-fill: #dc3545;" />
+            </HBox>
+         </VBox>
+      </VBox>
+
+      <!-- Right Panel - Chat Area -->
+      <VBox spacing="10" HBox.hgrow="ALWAYS">
+
+         <!-- Chat Header -->
+         <HBox fx:id="chatHeader" alignment="CENTER_LEFT" spacing="15" visible="false" managed="false"
+               style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10; -fx-border-color: #e9ecef; -fx-border-radius: 10; -fx-border-width: 1;">
+            <Label fx:id="selectedUserAvatar" text="👤" style="-fx-font-size: 20px;" />
+            <VBox>
+               <Label fx:id="selectedUserName" text="Select a user" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+               <Label fx:id="selectedUserStatus" text="Click on a user to start chatting" style="-fx-font-size: 12px; -fx-text-fill: #6c757d;" />
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="userInfoButton" text="ℹ️" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 15; -fx-cursor: hand;" />
+            <Button fx:id="clearChatButton" text="🗑️" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 15; -fx-cursor: hand;" />
+         </HBox>
+
+         <!-- Messages Area -->
+         <ScrollPane fx:id="messagesScrollPane" fitToWidth="true"
+                     style="-fx-background-color: #f8f9fa; -fx-background-radius: 10; -fx-border-color: #e9ecef; -fx-border-radius: 10; -fx-border-width: 1;"
+                     prefHeight="350" maxHeight="350" minHeight="350">
+            <VBox fx:id="messagesContainer" spacing="5" style="-fx-padding: 10;">
+               <!-- Default message when no user selected -->
+               <VBox fx:id="defaultMessageContainer" alignment="CENTER" spacing="15" style="-fx-padding: 30;">
+                  <Label text="💬" style="-fx-font-size: 36px;" />
+                  <Label text="Admin Chat Center" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #495057;" />
+                  <Label text="Select a user to start chatting" style="-fx-font-size: 12px; -fx-text-fill: #6c757d;" />
+               </VBox>
+            </VBox>
+         </ScrollPane>
+
+         <!-- Typing Indicator -->
+         <HBox fx:id="typingIndicator" alignment="CENTER_LEFT" spacing="5" visible="false" managed="false"
+               style="-fx-padding: 5 15;">
+            <Label text="💭" style="-fx-font-size: 12px;" />
+            <Label fx:id="typingLabel" text="User is typing..." style="-fx-font-size: 12px; -fx-text-fill: #6c757d; -fx-font-style: italic;" />
+         </HBox>
+
+         <!-- Message Input Area -->
+         <VBox fx:id="messageInputArea" spacing="8" visible="false" managed="false"
+               style="-fx-background-color: white; -fx-padding: 10; -fx-background-radius: 10; -fx-border-color: #e9ecef; -fx-border-radius: 10; -fx-border-width: 1;">
+
+            <!-- File Attachments Preview -->
+            <HBox fx:id="attachmentsPreview" spacing="8" visible="false" managed="false">
+               <Label text="📎" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+               <ScrollPane fitToHeight="true" prefHeight="40" maxHeight="40">
+                  <HBox fx:id="attachmentsContainer" spacing="5" />
+               </ScrollPane>
+               <Button fx:id="clearAttachmentsButton" text="✖" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 12; -fx-cursor: hand; -fx-font-size: 10px;"
+                       prefWidth="24" prefHeight="24" />
+            </HBox>
+
+            <!-- Message Input -->
+            <HBox spacing="8" alignment="CENTER_LEFT">
+               <TextArea fx:id="messageTextArea" promptText="Type your message..."
+                         prefRowCount="1" maxHeight="60" wrapText="true" HBox.hgrow="ALWAYS"
+                         style="-fx-background-radius: 20; -fx-border-color: #ced4da; -fx-border-radius: 20; -fx-padding: 8 12;" />
+
+               <HBox spacing="5" alignment="CENTER">
+                  <Button fx:id="attachFileButton" text="📎"
+                          style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 18; -fx-cursor: hand; -fx-font-size: 12px;"
+                          prefWidth="36" prefHeight="36" />
+                  <Button fx:id="sendButton" text="➤"
+                          style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-background-radius: 18; -fx-cursor: hand; -fx-font-size: 14px;"
+                          prefWidth="36" prefHeight="36" />
+               </HBox>
+            </HBox>
+
+            <!-- Quick Replies -->
+            <HBox spacing="6" alignment="CENTER_LEFT">
+               <Label text="Quick:" style="-fx-font-size: 10px; -fx-text-fill: #6c757d;" />
+               <Button fx:id="quickReply1" text="✅ Resolved"
+                       style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 12; -fx-cursor: hand; -fx-font-size: 10px; -fx-padding: 4 8;" />
+               <Button fx:id="quickReply2" text="🔍 Details"
+                       style="-fx-background-color: #ffc107; -fx-text-fill: black; -fx-background-radius: 12; -fx-cursor: hand; -fx-font-size: 10px; -fx-padding: 4 8;" />
+               <Button fx:id="quickReply3" text="⏳ Working"
+                       style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-background-radius: 12; -fx-cursor: hand; -fx-font-size: 10px; -fx-padding: 4 8;" />
+            </HBox>
+         </VBox>
+      </VBox>
+   </HBox>
+
+   <!-- Status Bar -->
+   <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10 0 0 0;">
+      <Label fx:id="connectionStatusLabel" text="🟢 Connected" style="-fx-font-size: 12px; -fx-text-fill: #28a745;" />
+      <Region HBox.hgrow="ALWAYS" />
+      <Label fx:id="lastActivityLabel" text="" style="-fx-font-size: 11px; -fx-text-fill: #6c757d;" />
+   </HBox>
+</VBox>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.taskmanagerv3.controller.RequestHelpController"
+      spacing="20" style="-fx-padding: 20;" prefWidth="500" prefHeight="600">
+
+   <!-- Header -->
+   <VBox spacing="10">
+      <Label text="Request Help" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+      <Label text="Need assistance with a task or have a question? Send a help request to your administrator."
+             style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" wrapText="true" />
+      <Separator />
+   </VBox>
+
+   <!-- Help Request Form -->
+   <VBox spacing="15">
+
+      <!-- Request Type -->
+      <VBox spacing="5">
+         <Label text="Request Type:" style="-fx-font-weight: bold;" />
+         <ComboBox fx:id="requestTypeComboBox" prefWidth="300" />
+      </VBox>
+
+      <!-- Priority -->
+      <VBox spacing="5">
+         <Label text="Priority:" style="-fx-font-weight: bold;" />
+         <ComboBox fx:id="priorityComboBox" prefWidth="200" />
+      </VBox>
+
+      <!-- Related Task -->
+      <VBox spacing="5">
+         <Label text="Related Task (Optional):" style="-fx-font-weight: bold;" />
+         <ComboBox fx:id="relatedTaskComboBox" prefWidth="400" />
+      </VBox>
+
+      <!-- Subject -->
+      <VBox spacing="5">
+         <Label text="Subject:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="subjectField" promptText="Brief description of your request..." />
+      </VBox>
+
+      <!-- Description -->
+      <VBox spacing="5">
+         <Label text="Description:" style="-fx-font-weight: bold;" />
+         <TextArea fx:id="descriptionArea" promptText="Please provide detailed information about your request..."
+                   prefRowCount="8" wrapText="true" />
+      </VBox>
+
+      <!-- Contact Preference -->
+      <VBox spacing="5">
+         <Label text="Preferred Contact Method:" style="-fx-font-weight: bold;" />
+         <HBox spacing="15">
+            <RadioButton fx:id="emailContactRadio" text="Email" selected="true" />
+            <RadioButton fx:id="phoneContactRadio" text="Phone" />
+            <RadioButton fx:id="inPersonContactRadio" text="In Person" />
+         </HBox>
+      </VBox>
+
+      <!-- Urgency Note -->
+      <VBox spacing="5" style="-fx-background-color: #fff3cd; -fx-padding: 10; -fx-background-radius: 5;">
+         <Label text="Note:" style="-fx-font-weight: bold; -fx-text-fill: #856404;" />
+         <Label text="For urgent issues that require immediate attention, please contact your administrator directly by phone or in person."
+                style="-fx-font-size: 11px; -fx-text-fill: #856404;" wrapText="true" />
+      </VBox>
+   </VBox>
+
+   <!-- Action Buttons -->
+   <HBox spacing="15" alignment="CENTER">
+      <Button fx:id="sendRequestButton" text="Send Request"
+              style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="saveAsDraftButton" text="Save as Draft"
+              style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="cancelButton" text="Cancel"
+              style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 12 25; -fx-background-radius: 5;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </HBox>
+
+   <!-- Help Request History -->
+   <VBox spacing="10">
+      <Label text="Recent Help Requests" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+      <ScrollPane prefHeight="120" fitToWidth="true">
+         <ListView fx:id="helpRequestHistoryListView" />
+      </ScrollPane>
+   </VBox>
+
+</VBox>

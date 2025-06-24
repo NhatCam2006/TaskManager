@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taskmanagerv3.controller.CreateTaskController"
+            fitToWidth="true" style="-fx-background-color: white;">
+   <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: white;">
+
+   <!-- Header -->
+   <Label text="Create New Task" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+   <Separator />
+
+   <!-- Form Fields -->
+   <GridPane hgap="15" vgap="15">
+      <columnConstraints>
+         <ColumnConstraints minWidth="120" prefWidth="120" />
+         <ColumnConstraints hgrow="ALWAYS" />
+      </columnConstraints>
+
+      <!-- Task Title -->
+      <Label text="Title *:" GridPane.columnIndex="0" GridPane.rowIndex="0"
+             style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+      <TextField fx:id="titleField" promptText="Enter task title"
+                GridPane.columnIndex="1" GridPane.rowIndex="0"
+                style="-fx-padding: 8; -fx-border-color: #bdc3c7; -fx-border-radius: 4;" />
+
+      <!-- Description -->
+      <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="1"
+             style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+      <TextArea fx:id="descriptionArea" promptText="Enter task description"
+               prefRowCount="3" wrapText="true"
+               GridPane.columnIndex="1" GridPane.rowIndex="1"
+               style="-fx-padding: 8; -fx-border-color: #bdc3c7; -fx-border-radius: 4;" />
+
+      <!-- Priority -->
+      <Label text="Priority:" GridPane.columnIndex="0" GridPane.rowIndex="2"
+             style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+      <ComboBox fx:id="priorityComboBox" maxWidth="Infinity"
+               GridPane.columnIndex="1" GridPane.rowIndex="2"
+               style="-fx-padding: 8; -fx-border-color: #bdc3c7; -fx-border-radius: 4;" />
+
+      <!-- Assigned User -->
+      <Label text="Assign to *:" GridPane.columnIndex="0" GridPane.rowIndex="3"
+             style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+      <ComboBox fx:id="assignedUserComboBox" maxWidth="Infinity"
+               promptText="Select user to assign"
+               GridPane.columnIndex="1" GridPane.rowIndex="3"
+               style="-fx-padding: 8; -fx-border-color: #bdc3c7; -fx-border-radius: 4;" />
+
+      <!-- Due Date -->
+      <Label text="Due Date:" GridPane.columnIndex="0" GridPane.rowIndex="4"
+             style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+      <DatePicker fx:id="dueDatePicker" maxWidth="Infinity"
+                 promptText="Select due date"
+                 GridPane.columnIndex="1" GridPane.rowIndex="4"
+                 style="-fx-padding: 8; -fx-border-color: #bdc3c7; -fx-border-radius: 4;" />
+
+      <!-- Estimated Hours -->
+      <Label text="Est. Hours:" GridPane.columnIndex="0" GridPane.rowIndex="5"
+             style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+      <Spinner fx:id="estimatedHoursSpinner" maxWidth="Infinity"
+              GridPane.columnIndex="1" GridPane.rowIndex="5"
+              style="-fx-padding: 8; -fx-border-color: #bdc3c7; -fx-border-radius: 4;" />
+
+      <!-- Comments -->
+      <Label text="Comments:" GridPane.columnIndex="0" GridPane.rowIndex="6"
+             style="-fx-font-weight: bold; -fx-text-fill: #34495e;" />
+      <TextArea fx:id="commentsArea" promptText="Additional comments or notes"
+               prefRowCount="2" wrapText="true"
+               GridPane.columnIndex="1" GridPane.rowIndex="6"
+               style="-fx-padding: 8; -fx-border-color: #bdc3c7; -fx-border-radius: 4;" />
+   </GridPane>
+
+   <!-- Required Fields Note -->
+   <Label text="* Required fields" style="-fx-font-size: 11; -fx-text-fill: #7f8c8d; -fx-font-style: italic;" />
+
+   <Separator />
+
+   <!-- Buttons -->
+   <HBox spacing="10" alignment="CENTER_RIGHT">
+      <Button fx:id="cancelButton" text="Cancel"
+              style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 4; -fx-cursor: hand;">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="createButton" text="Create Task"
+              style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 4; -fx-cursor: hand;"
+              defaultButton="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </HBox>
+
+   </VBox>
+</ScrollPane>

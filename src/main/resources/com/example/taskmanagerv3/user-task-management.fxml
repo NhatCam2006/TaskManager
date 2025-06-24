@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taskmanagerv3.controller.UserTaskManagementController">
+
+
+   <!-- Top Header -->
+   <top>
+      <VBox style="-fx-background-color: #2c3e50; -fx-padding: 15;">
+         <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="My Tasks" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="refreshButton" text="Refresh"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="backButton" text="Back to Dashboard"
+                    style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+         </HBox>
+      </VBox>
+   </top>
+
+   <!-- Left Sidebar - Filters -->
+   <left>
+      <VBox spacing="10" style="-fx-background-color: #ecf0f1; -fx-padding: 15;" prefWidth="250">
+         <Label text="Filters" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+
+         <!-- Status Filter -->
+         <VBox spacing="5">
+            <Label text="Status:" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="statusFilterComboBox" prefWidth="200" />
+         </VBox>
+
+         <!-- Priority Filter -->
+         <VBox spacing="5">
+            <Label text="Priority:" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="priorityFilterComboBox" prefWidth="200" />
+         </VBox>
+
+         <!-- Due Date Filter -->
+         <VBox spacing="5">
+            <Label text="Due Date:" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="dueDateFilterComboBox" prefWidth="200" />
+         </VBox>
+
+         <Separator />
+
+         <!-- Sort Options -->
+         <VBox spacing="5">
+            <Label text="Sort By:" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="sortComboBox" prefWidth="200" />
+         </VBox>
+
+         <Button fx:id="applyFiltersButton" text="Apply Filters"
+                 style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;"
+                 prefWidth="200">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+
+         <Button fx:id="clearFiltersButton" text="Clear Filters"
+                 style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;"
+                 prefWidth="200">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+      </VBox>
+   </left>
+
+   <!-- Center - Task List -->
+   <center>
+      <VBox spacing="10" style="-fx-padding: 20;">
+         <!-- Search Bar -->
+         <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Search:" />
+            <TextField fx:id="searchTextField" promptText="Search tasks..." prefWidth="300" />
+            <Button fx:id="searchButton" text="Search"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5;" />
+         </HBox>
+
+         <!-- Task Statistics -->
+         <HBox spacing="20" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-background-radius: 5;">
+            <VBox alignment="CENTER" spacing="5">
+               <Label fx:id="totalTasksLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+               <Label text="Total Tasks" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="5">
+               <Label fx:id="pendingTasksLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #f39c12;" />
+               <Label text="Pending" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="5">
+               <Label fx:id="inProgressTasksLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #3498db;" />
+               <Label text="In Progress" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="5">
+               <Label fx:id="completedTasksLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #27ae60;" />
+               <Label text="Completed" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="5">
+               <Label fx:id="overdueTasksLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;" />
+               <Label text="Overdue" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" />
+            </VBox>
+         </HBox>
+
+         <!-- Task List -->
+         <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox fx:id="taskListContainer" spacing="10" style="-fx-padding: 10;" />
+         </ScrollPane>
+      </VBox>
+   </center>
+
+   <!-- Bottom - Action Buttons -->
+   <bottom>
+      <HBox spacing="10" alignment="CENTER" style="-fx-padding: 15; -fx-background-color: #ecf0f1;">
+         <Button fx:id="updateProgressButton" text="Update Progress"
+                 style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="requestHelpButton" text="Request Help"
+                 style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="viewCalendarButton" text="View Calendar"
+                 style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </Button>
+      </HBox>
+   </bottom>
+
+</BorderPane>

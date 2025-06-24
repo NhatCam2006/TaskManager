@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taskmanagerv3.controller.UserManagementController"
+            fitToWidth="true" style="-fx-background-color: #f8f9fa;">
+   <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #f8f9fa;">
+
+   <!-- Header -->
+   <HBox alignment="CENTER_LEFT" spacing="20">
+      <Label text="User Management" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+      <Region HBox.hgrow="ALWAYS" />
+      <Button fx:id="refreshButton" text="🔄 Refresh"
+              style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 8 15; -fx-background-radius: 5; -fx-cursor: hand;">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+   </HBox>
+
+   <!-- Filters and Search -->
+   <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);">
+      <Label text="Filters &amp; Search" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+
+      <HBox spacing="15" alignment="CENTER_LEFT">
+         <Label text="Search:" style="-fx-font-weight: bold; -fx-text-fill: #555;" />
+         <TextField fx:id="searchField" promptText="Search by name, username, email, or department..."
+                   prefWidth="300" style="-fx-padding: 8; -fx-border-color: #bdc3c7; -fx-border-radius: 4;" />
+
+         <Label text="Role:" style="-fx-font-weight: bold; -fx-text-fill: #555;" />
+         <ComboBox fx:id="roleFilterComboBox" prefWidth="120"
+                  style="-fx-padding: 8; -fx-border-color: #bdc3c7; -fx-border-radius: 4;" />
+
+         <CheckBox fx:id="activeOnlyCheckBox" text="Active Only"
+                  style="-fx-font-weight: bold; -fx-text-fill: #555;" />
+      </HBox>
+   </VBox>
+
+   <!-- Action Buttons -->
+   <HBox spacing="10" alignment="CENTER_LEFT">
+      <Button fx:id="createUserButton" text="👤 Create User"
+              style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5; -fx-cursor: hand;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="editUserButton" text="✏️ Edit User"
+              style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5; -fx-cursor: hand;">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+
+      <Button fx:id="toggleStatusButton" text="🔄 Toggle Status"
+              style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5; -fx-cursor: hand;">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+
+      <Region HBox.hgrow="ALWAYS" />
+
+      <Button fx:id="closeButton" text="Close"
+              style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 5; -fx-cursor: hand;">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+   </HBox>
+
+   <!-- Users Table -->
+   <VBox VBox.vgrow="ALWAYS" spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);">
+      <Label text="Users List" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+
+      <TableView fx:id="usersTable" VBox.vgrow="ALWAYS"
+                style="-fx-border-color: #dee2e6; -fx-border-radius: 4;">
+         <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+            <TableColumn fx:id="usernameColumn" text="Username" prefWidth="120" />
+            <TableColumn fx:id="fullNameColumn" text="Full Name" prefWidth="150" />
+            <TableColumn fx:id="emailColumn" text="Email" prefWidth="180" />
+            <TableColumn fx:id="roleColumn" text="Role" prefWidth="100" />
+            <TableColumn fx:id="departmentColumn" text="Department" prefWidth="120" />
+            <TableColumn fx:id="statusColumn" text="Status" prefWidth="80" />
+            <TableColumn fx:id="lastLoginColumn" text="Last Login" prefWidth="130" />
+         </columns>
+
+         <placeholder>
+            <Label text="No users found" style="-fx-text-fill: #7f8c8d; -fx-font-style: italic;" />
+         </placeholder>
+      </TableView>
+   </VBox>
+
+   <!-- Status Bar -->
+   <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #ecf0f1; -fx-background-radius: 5;">
+      <Label fx:id="totalUsersLabel" text="Total: 0 users" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+      <Separator orientation="VERTICAL" />
+      <Label fx:id="selectedUserLabel" text="No user selected" style="-fx-text-fill: #7f8c8d;" />
+   </HBox>
+
+   </VBox>
+</ScrollPane>
